@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "description": "A template for getting a web page up quickly with webpack",
   "main": "index.js",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "webpack": "^4.8.1"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "test"
   },
