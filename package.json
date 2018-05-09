@@ -1,0 +1,30 @@
+{
+  "name": "webpack-starter-template",
+  "version": "0.1.0",
+  "description": "A template for getting a web page up quickly with webpack",
+  "main": "index.js",
+  "dependencies": {
+    "webpack": "^4.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZachTRice/webpack-starter-template.git"
+  },
+  "keywords": [
+    "webpack",
+    "template",
+    "webpage",
+    "starter",
+    "website"
+  ],
+  "author": "ZachTRice",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZachTRice/webpack-starter-template/issues"
+  },
+  "homepage": "https://github.com/ZachTRice/webpack-starter-template#readme"
+}
