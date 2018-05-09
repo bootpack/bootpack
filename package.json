@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "description": "A template for getting a web page up quickly with webpack",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "js-image-generator": "^1.0.2"
+  },
   "devDependencies": {
     "webpack": "^4.8.1"
   },
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build:images": "node tools/image-generator.js"
   },
   "repository": {
     "type": "git",
