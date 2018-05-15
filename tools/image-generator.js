@@ -2,8 +2,8 @@ var fs = require('fs');
 var imgGen = require('js-image-generator');
 
 // Generate one image
-imgGen.generateImage(800, 600, 80, function(err, image) {
-    fs.writeFileSync('placeholder.jpg', image.data);
+imgGen.generateImage(800, 600, 80, function(image) {
+  fs.writeFileSync('placeholder.jpg', image.data);
 });
 
 // Generate multiple images
