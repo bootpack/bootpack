@@ -24,6 +24,7 @@ npm start
 
 `npm run build` - Creates the project in development mode and outputs to the dist folder
 `npm start` - Creates the project in production mode, runs webpack watch, and outputs changes to the dist folder
+`npm run build:images` - Create placeholder images (Right now you must manually update tools/image-generator.js to change the image size)
 
 ## Support
 
