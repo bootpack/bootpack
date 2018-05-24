@@ -34,7 +34,8 @@ module.exports = (env, argv) => {
     plugins: [
       new CleanWebpackPlugin(['dist']),
       new CopyWebpackPlugin([
-        { from: 'src/images', to: 'images' }
+        { from: 'src/images', to: 'images' },
+        { from: 'src/fonts', to: 'fonts' }
       ]),
       new HtmlWebpackPlugin({
         hash: true,
@@ -56,7 +57,7 @@ module.exports = (env, argv) => {
             loader: MiniCssExtractPlugin.loader
           },
           {
-            loader: 'css-loader' // translates CSS into CommonJS modules
+            loader: 'css-loader?url=false' // translates CSS into CommonJS modules
           },
           {
             loader: 'postcss-loader', // Run post css actions
