@@ -21,13 +21,13 @@
   ],
   "scripts": {
     "build": "webpack --mode=production",
+    "watch": "webpack --watch --mode=development",
+    "start": "webpack-dev-server --open",
     "test": "run-s lint:*",
     "lint": "run-s lint:*",
     "lint:css": "stylelint ./src/css/*.css",
     "lint:js": "eslint .",
-    "build:images": "node tools/image-generator.js",
-    "start": "webpack-dev-server --open",
-    "watch": "webpack --watch --mode=development"
+    "generate:images": "node tools/image-generator.js"
   },
   "dependencies": {
     "bootstrap": "^4.1.1",
