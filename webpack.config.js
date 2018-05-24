@@ -38,7 +38,6 @@ module.exports = (env, argv) => {
       ]),
       new HtmlWebpackPlugin({
         hash: true,
-        title: 'Worldview Snapshots',
         template: './src/index.html',
         filename: './index.html',
         inject: false
