@@ -1,6 +1,6 @@
 {
   "name": "webpack-bootstrap-boilerplate",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "ZachTRice",
   "description": "A boilerplate template for getting a web page up quickly with webpack and bootstrap.",
   "license": "MIT",
