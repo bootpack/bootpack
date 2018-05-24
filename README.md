@@ -1,5 +1,6 @@
-# Webpack Starter Template
-A webpack boilerplate template for getting a web page up quickly with webpack
+# Webpack Bootstrap Boilerplate
+
+A boilerplate template for getting a web page set up quickly using webpack for task running and bootstrap for development.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -11,7 +12,7 @@ A webpack boilerplate template for getting a web page up quickly with webpack
 Download to your project directory, add `README.md`, and commit:
 
 ```sh
-git clone https://github.com/ZachTRice/webpack-starter-template.git
+git clone https://github.com/ZachTRice/webpack-bootstrap-boilerplate.git
 npm install
 npm run build
 npm start
@@ -32,8 +33,8 @@ npm start
 ### Tools
 `npm run generate:images` - Create a placeholder image (Right now you must manually update tools/image-generator.js to change the image size)
 
-## Support
-Please [open an issue](https://github.com/ZachTRice/webpack-starter-template/issues/new) for support.
+Please [open an issue](https://github.com/ZachTRice/webpack-bootstrap-boilerplate/issues/new) for support.
 
 ## Contributing
-Please contribute using [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). Create a feature branch, add commits, and [open a pull request](https://github.com/ZachTRice/webpack-starter-template/compare/).
+
+Please contribute using [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). Create a feature branch, add commits, and [open a pull request](https://github.com/ZachTRice/webpack-bootstrap-boilerplate/compare/).
