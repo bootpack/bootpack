@@ -1,16 +1,16 @@
 {
-  "name": "webpack-starter-template",
+  "name": "webpack-bootstrap-boilerplate",
   "version": "0.2.0",
   "author": "ZachTRice",
-  "description": "A template for getting a web page up quickly with webpack and bootstrap",
+  "description": "A boilerplate template for getting a web page up quickly with webpack and bootstrap.",
   "license": "MIT",
-  "homepage": "https://github.com/ZachTRice/webpack-starter-template#readme",
+  "homepage": "https://github.com/ZachTRice/webpack-bootstrap-boilerplate#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZachTRice/webpack-starter-template.git"
+    "url": "git+https://github.com/ZachTRice/webpack-bootstrap-boilerplate.git"
   },
   "bugs": {
-    "url": "https://github.com/ZachTRice/webpack-starter-template/issues"
+    "url": "https://github.com/ZachTRice/webpack-bootstrap-boilerplate/issues"
   },
   "keywords": [
     "webpack",
