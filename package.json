@@ -1,6 +1,6 @@
 {
   "name": "webpack-starter-template",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "ZachTRice",
   "description": "A template for getting a web page up quickly with webpack and bootstrap",
   "license": "MIT",
