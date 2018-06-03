@@ -1,5 +1,7 @@
 # Webpack Bootstrap Boilerplate
 
+[![Build Status](https://travis-ci.com/ZachTRice/webpack-bootstrap-boilerplate.svg?branch=master)](https://travis-ci.com/ZachTRice/webpack-bootstrap-boilerplate)
+
 A boilerplate template for getting a web page set up quickly using webpack for task running and bootstrap for development.
 
 ## Table of Contents
