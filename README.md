@@ -33,7 +33,6 @@ Bootstrap 4 is imported into main.css via `@import "~bootstrap/scss/bootstrap";`
 ``` 
 /* All files minified & gzipped */
 |-css/main.css
-|-favicon/
 |-fonts/
 |--OpenSans/
 |--[font_styles]
