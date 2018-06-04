@@ -114,7 +114,9 @@
     "at-rule-name-space-after": "always",
     "at-rule-semicolon-newline-after": "always",
     "at-rule-semicolon-space-before": "never",
-    "comment-empty-line-before": "always",
+    "comment-empty-line-before": ["always", {
+      ignore: "after-comment"
+    }],
     "indentation": 2,
     "max-empty-lines": 1,
     "no-eol-whitespace": true,
