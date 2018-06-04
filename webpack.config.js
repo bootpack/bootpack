@@ -55,6 +55,13 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
+          test: require.resolve('jquery'),
+          use: [
+            { loader: 'expose-loader', options: 'jQuery' },
+            { loader: 'expose-loader', options: '$' }
+          ]
+        },
+        {
           test: /\.(scss|css)$/,
           use: [{
             loader: MiniCssExtractPlugin.loader
