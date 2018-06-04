@@ -22,7 +22,7 @@
   "scripts": {
     "build": "webpack --mode=production",
     "watch": "webpack --watch --mode=development",
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server --mode=development --open",
     "test": "run-s lint:*",
     "lint": "run-s lint:*",
     "lint:css": "stylelint ./src/css/*.css",
