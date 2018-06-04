@@ -1,5 +1,6 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -35,7 +36,8 @@ module.exports = (env, argv) => {
       new CleanWebpackPlugin(['dist']),
       new CopyWebpackPlugin([
         { from: 'src/images', to: 'images' },
-        { from: 'src/fonts', to: 'fonts' }
+        { from: 'src/fonts', to: 'fonts' },
+        { from: 'src/favicon' }
       ]),
       new HtmlWebpackPlugin({
         hash: true,
@@ -47,7 +49,8 @@ module.exports = (env, argv) => {
         filename: 'css/main.css',
         chunkFilename: '[id].css'
       }),
-      new WriteFilePlugin()
+      new WriteFilePlugin(),
+      new CompressionPlugin()
     ],
     module: {
       rules: [
