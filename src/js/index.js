@@ -1,7 +1,9 @@
+// CSS Imports *include in entry file only
+import '../css/bootstrap.css';
 import '../css/main.css';
 
 /* Boostrap 4 Full Bundles */
-import 'bootstrap/src/js/bootstrap.bundle'; /* Includes popper.js */
+import 'bootstrap/dist/js/bootstrap.bundle'; /* Includes popper.js */
 // import 'bootstrap'; /* Does not include popper. js */
 
 /* Bootstrap 4 Tooltip Dependency (Optional) */
