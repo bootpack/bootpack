@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -45,6 +46,13 @@ module.exports = (env, argv) => {
         filename: './index.html',
         inject: false
       }),
+      new webpack.ProvidePlugin({
+        /* Use when importing individual BS components */
+        // '$': 'jquery/dist/jquery.slim.js',
+        // 'jQuery': 'jquery/dist/jquery.slim.js',
+        // 'Popper': 'popper.js/dist/umd/popper', /* required for tooltips */
+        // 'Util': 'exports-loader?Util!bootstrap/js/dist/util'
+      }),
       new MiniCssExtractPlugin({
         filename: 'css/main.css',
         chunkFilename: '[id].css'
@@ -54,13 +62,6 @@ module.exports = (env, argv) => {
     ],
     module: {
       rules: [
-        {
-          test: require.resolve('jquery'),
-          use: [
-            { loader: 'expose-loader', options: 'jQuery' },
-            { loader: 'expose-loader', options: '$' }
-          ]
-        },
         {
           test: /\.(scss|css)$/,
           use: [{
