@@ -36,7 +36,7 @@ Bootstrap 4 is imported into main.css via `@import "~bootstrap/scss/bootstrap";`
 |-favicon/
 |-fonts/
 |--OpenSans/
-|--[font_styles]
+|--[font_styles]/
 |-images/
 |-js/index.js
 |-index.html
@@ -63,16 +63,16 @@ npm start
 ### Build
 `npm run build` - Creates the project in **production** mode and outputs to the dist folder.   
 `npm run watch` - Creates the project in **development** mode and outputs to the dist folder.   
-`npm start` - Creates the project in production mode, runs webpack-dev-derver, watches changes & refreshes page. Changes are output to the dist folder.   
+`npm start` - Creates the project in production mode, runs webpack-dev-server to watch for changes & refresh the page. Changes are output to the dist folder.   
 
 ### Test
-`npm run test` - Runs lint tests; Add unit and e2e as needed   
+`npm run test` - Runs lint tests; Unit and e2e tests can be added here
 `npm run lint` - Runs eslint and stylelint tests   
 `npm run lint:js` - Runs eslint test   
 `npm run lint:css` - Runs stylelint test   
 
 ### Tools
-`npm run generate:images` - Create a placeholder image (Right now you must manually update tools/image-generator.js to change the image size)
+`npm run generate:images` - Create a placeholder image (Edit `tools/image-generator.js` to change the image size)
 
 Please [open an issue](https://github.com/ZachTRice/webpack-bootstrap-boilerplate/issues/new) for support.
 
