@@ -1,10 +1,13 @@
 # Webpack Bootstrap Boilerplate
-
-[![Build Status](https://travis-ci.com/ZachTRice/webpack-bootstrap-boilerplate.svg?branch=master)](https://travis-ci.com/ZachTRice/webpack-bootstrap-boilerplate)
+[![GitHub release](https://img.shields.io/github/release/bootpack/bootpack.svg)](https://GitHub.com/bootpack/bootpack/releases/)
+[![Build Status](https://travis-ci.com/bootpack/bootpack.svg?branch=master)](https://travis-ci.com/bootpack/bootpack)
+[![GitHub license](https://img.shields.io/github/license/bootpack/bootpack.svg)](https://github.com/bootpack/bootpack/blob/master/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/bootpack/bootpack/blob/master/.github/CONTRIBUTING.md)
+[![GitHub stars](https://img.shields.io/github/stars/bootpack/bootpack.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/bootpack/bootpack/stargazers/)
 
 ## Overview
 
-A boilerplate template for getting a web page set up quickly using webpack for task running and bootstrap for development. 
+A boilerplate template for getting a web page set up quickly using webpack for task running and bootstrap for development.
 
 ### Webpack 4
 The webpack build creates a `dist` folder that closely mimics the `src` folder. In production mode, the `dist` folder contains files that are minified & compressed. In development mode, files are kept unminified with sourcemapping turned on as needed & no compression output. Webpack server is available to speed up development via live browser refreshes on code change while preserving the ability to inspect the `dist` folder. The `src` directory contains starter files to get the project off the ground quickly.
@@ -30,7 +33,7 @@ Bootstrap 4 is imported into main.css via `@import "~bootstrap/scss/bootstrap";`
 ```
 
 `dist` file structure
-``` 
+```
 /* All files minified & gzipped */
 |-css/main.css
 |-fonts/
@@ -52,7 +55,7 @@ Bootstrap 4 is imported into main.css via `@import "~bootstrap/scss/bootstrap";`
 Download to your project directory, add `README.md`, and commit:
 
 ```sh
-git clone https://github.com/ZachTRice/webpack-bootstrap-boilerplate.git
+git clone https://github.com/bootpack/bootpack.git
 npm install
 npm run build
 npm start
@@ -73,8 +76,8 @@ npm start
 ### Tools
 `npm run generate:images` - Create a placeholder image (Edit `tools/image-generator.js` to change the image size)
 
-Please [open an issue](https://github.com/ZachTRice/webpack-bootstrap-boilerplate/issues/new) for support.
+Please [open an issue](https://github.com/bootpack/bootpack/issues/new) for support.
 
 ## Contributing
 
-Please contribute using [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). Create a feature branch, add commits, and [open a pull request](https://github.com/ZachTRice/webpack-bootstrap-boilerplate/compare/).
+Please contribute using [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). Create a feature branch, add commits, and [open a pull request](https://github.com/bootpack/bootpack/compare/).
