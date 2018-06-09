@@ -1,16 +1,16 @@
 {
-  "name": "webpack-bootstrap-boilerplate",
+  "name": "bootpack",
   "version": "0.7.0",
   "author": "ZachTRice",
-  "description": "A boilerplate template for getting a web page up quickly with webpack and bootstrap.",
+  "description": "A webpack and bootstrap boilerplate template for building web pages quickly.",
   "license": "MIT",
-  "homepage": "https://github.com/ZachTRice/webpack-bootstrap-boilerplate#readme",
+  "homepage": "https://github.com/bootpack/bootpack#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZachTRice/webpack-bootstrap-boilerplate.git"
+    "url": "git+https://github.com/bootpack/bootpack.git"
   },
   "bugs": {
-    "url": "https://github.com/ZachTRice/webpack-bootstrap-boilerplate/issues"
+    "url": "https://github.com/bootpack/bootpack/issues"
   },
   "keywords": [
     "webpack",
@@ -32,6 +32,7 @@
   "dependencies": {
     "bootstrap": "^4.1.1",
     "jquery": "^3.3.1",
+    "npm": "^6.1.0",
     "popper.js": "^1.14.3"
   },
   "devDependencies": {
