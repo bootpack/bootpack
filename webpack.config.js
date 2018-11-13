@@ -3,10 +3,11 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 
 module.exports = (env, argv) => {
@@ -24,7 +25,7 @@ module.exports = (env, argv) => {
         new UglifyJsPlugin({
           cache: true,
           parallel: true,
-          sourceMap: !!devMode
+          sourceMap: devMode
         }),
         new OptimizeCSSAssetsPlugin({})
       ]
@@ -37,14 +38,51 @@ module.exports = (env, argv) => {
       new CleanWebpackPlugin(['dist']),
       new CopyWebpackPlugin([
         { from: 'src/images', to: 'images' },
-        { from: 'src/fonts', to: 'fonts' },
-        { from: 'src/favicon' }
+        { from: 'src/fonts', to: 'fonts' }
       ]),
+      new FaviconsWebpackPlugin({
+        // The favicon app title (see https://github.com/haydenbleasel/favicons#usage)
+        // title: 'Webpack App',
+
+        // Your source logo
+        logo: './favicon.png',
+        // The prefix for all image files (might be a folder or a name)
+        prefix: 'favicon[hash]',
+        // Emit all stats of the generated icons
+        emitStats: false,
+        // The name of the json containing all favicon information
+        statsFilename: 'faviconstats[hash].json',
+        // Generate a cache file with control hashes and
+        // don't rebuild the favicons until those hashes change
+        persistentCache: true,
+        // Inject the html into the html-webpack-plugin
+        inject: true,
+        // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
+        background: '#fff',
+
+        // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: true,
+          favicons: true,
+          firefox: true,
+          opengraph: true,
+          twitter: true,
+          yandex: true,
+          windows: true
+        }
+      }),
       new HtmlWebpackPlugin({
         hash: true,
         template: './src/index.html',
         filename: './index.html',
-        inject: false
+        inject: false,
+        minify: {
+          removeComments: !devMode,
+          collapseWhitespace: !devMode
+        }
       }),
       new webpack.ProvidePlugin({
         /* Use when importing individual BS components */
