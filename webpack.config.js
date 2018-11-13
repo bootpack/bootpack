@@ -78,11 +78,14 @@ module.exports = (env, argv) => {
         hash: true,
         template: './src/index.html',
         filename: './index.html',
-        inject: false,
+        inject: true,
         minify: {
           removeComments: !devMode,
           collapseWhitespace: !devMode
         }
+      }),
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].css'
       }),
       new webpack.ProvidePlugin({
         /* Use when importing individual BS components */
@@ -91,37 +94,29 @@ module.exports = (env, argv) => {
         // 'Popper': 'popper.js/dist/umd/popper', /* required for tooltips */
         // 'Util': 'exports-loader?Util!bootstrap/js/dist/util'
       }),
-      new MiniCssExtractPlugin({
-        filename: 'css/main.css',
-        chunkFilename: '[id].css'
-      }),
       new WriteFilePlugin(),
       new CompressionPlugin()
     ],
     module: {
       rules: [
         {
-          test: /\.(scss|css)$/,
-          use: [{
-            loader: MiniCssExtractPlugin.loader
-          },
-          {
-            loader: 'css-loader?url=false' // translates CSS into CommonJS modules
-          },
-          {
-            loader: 'postcss-loader', // Run post css actions
-            options: {
-              plugins: function () { // post css plugins, can be exported to postcss.config.js
-                return [
-                  require('precss'),
-                  require('autoprefixer')
-                ];
+          test: /\.(sa|sc|c)ss$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            'css-loader?url=false', // translates CSS into CommonJS modules
+            {
+              loader: 'postcss-loader', // Run post css actions
+              options: {
+                plugins: function () { // post css plugins, can be exported to postcss.config.js
+                  return [
+                    require('precss'),
+                    require('autoprefixer')
+                  ];
+                }
               }
-            }
-          },
-          {
-            loader: 'sass-loader' // compiles Sass to CSS
-          }]
+            },
+            'sass-loader' // compiles Sass to CSS
+          ]
         },
         {
           test: /\.js$/,
