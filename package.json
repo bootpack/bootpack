@@ -27,7 +27,6 @@
     "lint": "run-s lint:*",
     "lint:css": "stylelint ./src/css/*.css",
     "lint:js": "eslint .",
-    "generate:favicons": "node tools/generate-favicons.js",
     "generate:images": "node tools/generate-images.js"
   },
   "dependencies": {
@@ -54,6 +53,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "exports-loader": "^0.7.0",
     "favicons": "^5.2.0",
+    "favicons-webpack-plugin": "0.0.9",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "js-image-generator": "^1.0.2",
