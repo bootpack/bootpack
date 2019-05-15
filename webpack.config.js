@@ -9,9 +9,39 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
+const fs = require('fs');
 
 module.exports = (env, argv) => {
   const devMode = argv.mode !== 'production';
+
+  var generateHtmlPages = function(templateDir, relOutput) {
+    const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
+    return templateFiles.map(item => {
+      const parts = item.split('.');
+      const name = parts[0];
+      const extension = parts[1];
+      if (extension && (extension === 'html' || extension === 'htm')) {
+        return new HtmlWebpackPlugin({
+          hash: true,
+          filename: `${relOutput}/${name}.${extension}`,
+          template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
+          inject: true,
+          minify: {
+            removeComments: !devMode,
+            collapseWhitespace: !devMode
+          }
+        });
+      } else {
+        return new HtmlWebpackPlugin({});
+      }
+    });
+  };
+
+  var htmlPages = generateHtmlPages('./src', './');
+  var starterPage = generateHtmlPages('./src/templates/starter', './templates/starter');
+  var gridPage = generateHtmlPages('./src/templates/grid', './templates/grid');
+  var jumbotronPage = generateHtmlPages('./src/templates/jumbotron', './templates/jumbotron');
+
   return {
     entry: {
       'index': './src/js/index.js'
@@ -96,7 +126,7 @@ module.exports = (env, argv) => {
       }),
       new WriteFilePlugin(),
       new CompressionPlugin()
-    ],
+    ].concat(htmlPages).concat(starterPage).concat(gridPage).concat(jumbotronPage),
     module: {
       rules: [
         {
@@ -146,8 +176,9 @@ module.exports = (env, argv) => {
           }
         },
         {
-          test: /\.html$/,
-          loader: 'raw-loader'
+          test: /.html$/,
+          include: path.resolve(__dirname, 'src'),
+          use: ['raw-loader']
         }
       ]
     }
