@@ -35,7 +35,7 @@ module.exports = (env, argv) => {
       path: path.join(__dirname, '/dist')
     },
     plugins: [
-      new CleanWebpackPlugin(['dist']),
+      new CleanWebpackPlugin(),
       new CopyWebpackPlugin([
         { from: 'src/images', to: 'images' },
         { from: 'src/fonts', to: 'fonts' }
