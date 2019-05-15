@@ -11,7 +11,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const fs = require('fs');
 
-const devMode = false;
+const devMode = process.env.NODE_ENV !== 'production';
 const waitFor = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function asyncForEach(array, callback) {
@@ -53,7 +53,7 @@ var generateHtmlPages = function(templateDir, relOutput) {
     const name = parts[0];
     const extension = parts[1];
     if (extension && (extension === 'html' || extension === 'htm')) {
-      console.log(path.resolve(__dirname, `${templateDir}/${name}.${extension}`));
+      // console.log(path.resolve(__dirname, `${templateDir}/${name}.${extension}`));
       htmlPages.push(new HtmlWebpackPlugin({
         hash: true,
         filename: `${relOutput}/${name}.${extension}`,
@@ -78,12 +78,12 @@ var findHTML = function() {
         await waitFor(50);
         dirCount--;
         var relOutput = directory.replace('src\\', '.\\');
-        console.log('directory', directory);
-        console.log('relOutput', relOutput);
+        // console.log('directory', directory);
+        // console.log('relOutput', relOutput);
         generateHtmlPages(directory, relOutput);
         if (dirCount <= 0) {
           await waitFor(500);
-          console.log('All pages generated');
+          // console.log('All pages generated');
           resolve();
         }
       });
@@ -91,10 +91,10 @@ var findHTML = function() {
   });
 };
 
-module.exports = (env, argv) => {
+module.exports = () => {
   return new Promise(resolve => {
     setTimeout(() => {
-      console.log('htmlPages', htmlPages);
+      // console.log('htmlPages', htmlPages);
       resolve({
         entry: {
           'index': './src/js/index.js'
