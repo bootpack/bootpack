@@ -20,9 +20,9 @@
     "website"
   ],
   "scripts": {
-    "build": "webpack --mode=production",
-    "watch": "webpack --watch --mode=development",
-    "start": "webpack-dev-server --mode=development --open",
+    "build": "cross-env NODE_ENV=production webpack",
+    "watch": "cross-env NODE_ENV=development webpack --watch",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --open",
     "test": "run-s lint:*",
     "lint": "run-s lint:*",
     "lint:css": "stylelint ./src/css/*.css",
@@ -41,6 +41,7 @@
     "clean-webpack-plugin": "^2.0.2",
     "compression-webpack-plugin": "^2.0.0",
     "copy-webpack-plugin": "^5.0.3",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
     "eslint-config-import": "^0.13.0",
