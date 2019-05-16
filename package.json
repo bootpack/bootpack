@@ -27,7 +27,8 @@
     "lint": "run-s lint:*",
     "lint:css": "stylelint ./src/css/*.css",
     "lint:js": "eslint .",
-    "generate:images": "node tools/generate-images.js"
+    "compress:images": "node ./tools/compress-images.js",
+    "generate:images": "node ./tools/generate-images.js"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -38,7 +39,9 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.6.1",
+    "chalk": "^2.4.2",
     "clean-webpack-plugin": "^2.0.2",
+    "compress-images": "^1.5.2",
     "compression-webpack-plugin": "^2.0.0",
     "copy-webpack-plugin": "^5.0.3",
     "cross-env": "^5.2.0",
