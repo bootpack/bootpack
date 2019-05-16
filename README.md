@@ -5,13 +5,13 @@
 `bootpack` is a boilerplate template for getting a web page set up quickly using webpack for task running and bootstrap for development.
 
 **Bootstrap + Webpack = &hearts;**
-- **Just Develop:** 4 steps to [get started](#installation). Launches a dev server with live reloading.
+- **Just Develop:** 4 steps to [get started](#installation). Launch a dev server with live reloading.
 - **Pre-Configured Build:** A pre-configured webpack config simplifies overcomplicated build processes.
-- **Predictable File Output:** Keeps your CSS where you want it; out of your JavaScript files! The dist folder will closely match the src folder.
-- **Minified Files:** JavaScript and CSS is minified and output as a single file.
-- **Compressed Resources:** JS, CSS, Fonts, Images and Favicons are gzipped for maximum compression.
+- **Predictable File Output:** Keep your CSS where you want it; out of your JavaScript files! The `dist` directory will closely match the `src` directory.
+- **Minified Files:** JavaScript and CSS is minified and output as single files.
+- **Compressed Resources:** JS, CSS, fonts, images and favicons are gzipped for maximum compression.
 - **Dev and Production Builds:** [Build](#build) the project in development mode with sourcemapping enabled or production mode.
-- **Development Tools:** Generate placeholder images + more [tools](#tools) coming soon to ease web development.
+- **Development Tools:** Generate & compress images + more [tools](#tools) to ease web development.
 - **Built-In Tests:** Lint JavaScript and CSS files with [one command](#test).
 
 ## Table of Contents
@@ -31,13 +31,13 @@ npm start
 ```
 - Navigate to http://localhost:8080 in a browser. 
 - Save a file in the project to refresh the browser. 
-- Press Control+C in the terminal to stop serving.
+- Press ctrl+c in the terminal to stop serving.
 
 ## Usage
 ### Build
-`npm run build` - Creates the project in **production** mode (minified) and outputs to the dist folder.   
-`npm run watch` - Creates the project in **development** mode (unminified, sourcemap enabled). This mode watches for changes and outputs to the dist folder.   
-`npm start` - Creates the project in **development** mode (unminified, sourcemap enabled). This mode watches for changes, outputs to the dist folder and live reloades the page.
+`npm run build` - Creates the project in **production** mode (minified) and outputs to the dist directory.   
+`npm run watch` - Creates the project in **development** mode (unminified). This mode watches for changes and outputs to the dist directory.   
+`npm start` - Creates the project in **development** mode (unminified). This mode watches for changes, outputs to the dist directory and live reloades the page.
 
 ### Test
 `npm run test` - Runs lint tests (+ additional unit and e2e tests can be added here as needed)   
@@ -46,26 +46,33 @@ npm start
 `npm run lint:css` - Runs stylelint test
 
 ### Tools
-`npm run generate:images` - Create a placeholder image (Edit `tools/image-generator.js` to change the image size)
+`npm run compress:images` 
+- Optimizes images in the `images` directory, saves original images to `images-original`.   
+- Run before building or during watch. Only the `images` directory will be copied to the `dist` directory.   
+- Edit `tools/image-compress.js` to change the image compress. See: https://www.npmjs.com/package/compress-images for settings
+
+`npm run generate:images` 
+- Creates a placeholder.jpg image in the `images` directory   
+- Edit `tools/image-generator.js` to change the image size
 
 ## About
 
 ### Webpack 4
 #### Webpack: Builds
-The webpack build creates a `dist` folder that closely mimics the `src` folder. 
-- In production mode, the `dist` folder contains files that are minified & compressed. 
+The webpack build creates a `dist` directory that closely mimics the `src` directory. 
+- In production mode, the `dist` directory contains files that are minified & compressed. 
 - In development mode, files are kept unminified with sourcemapping turned on as needed & no compression output. 
-- Webpack server is available to speed up development via live browser refreshes on code change while preserving the ability to inspect the `dist` folder. The `src` directory contains starter files to get the project off the ground quickly.
+- Webpack server is available to speed up development via live browser refreshes on code change while preserving the ability to inspect the `dist` directory. The `src` directory contains starter files to get the project off the ground quickly.
 
 #### Webpack: Process
 The webpack task runner builds the site with the following commands:
 - `npm run build` will build production. 
 - `npm run watch` builds development mode and watches for file changes. 
 - `npm run start` builds development mode, watches for file changes, opens the browser when first ran and refreshes the browser when files change.
-1. The `dist` folder is cleaned and rebuilt or modified.
-2. Images and Fonts are copied from `src/images` -> `dist/images` and `src/fonts` -> `dist/fonts`.
+1. The `dist` directory is cleaned and rebuilt or modified.
+2. Images and fonts are copied from `src/images` -> `dist/images` and `src/fonts` -> `dist/fonts`.
 3. Favicons are generated and injected into the dist index.html file from the `src/favicon.png` file. 
-4. `src/index.html` is copied to `dist/index.html`
+4. `src/**/*.html` is copied to `dist/**/*.html`
 5. [Optional]: Individual, global bootstrap components are injected into the index.js.
 6. CSS files imported into `src/css/main.css` are bundled together and minified.
 8. Files are compressed with gzip compression.
