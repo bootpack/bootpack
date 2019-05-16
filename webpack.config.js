@@ -177,9 +177,9 @@ module.exports = () => {
             // 'Popper': 'popper.js/dist/umd/popper', /* required for tooltips */
             // 'Util': 'exports-loader?Util!bootstrap/js/dist/util'
           }),
+          ...htmlPages,
           new WriteFilePlugin(),
-          new CompressionPlugin(),
-          ...htmlPages
+          new CompressionPlugin()
         ],
         module: {
           rules: [
