@@ -86,7 +86,11 @@ module.exports = () => {
             },
             devtool: 'inline-source-map',
             devServer: {
-              contentBase: './dist'
+              before: function(app, server) {
+                app.get('*/index.html', function(req, res, next) {
+                  res.redirect(req.originalUrl.split('index.html').shift());
+                });
+              }
             },
             optimization: {
               minimizer: [
@@ -100,7 +104,8 @@ module.exports = () => {
             },
             output: {
               filename: 'js/[name].js',
-              path: path.join(__dirname, '/dist')
+              path: path.resolve(__dirname, 'dist'),
+              publicPath: '/'
             },
             plugins: [
               new CleanWebpackPlugin(),
