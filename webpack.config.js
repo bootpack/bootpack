@@ -104,8 +104,7 @@ module.exports = () => {
             },
             output: {
               filename: 'js/[name].js',
-              path: path.resolve(__dirname, 'dist'),
-              publicPath: '/'
+              path: path.join(__dirname, '/dist')
             },
             plugins: [
               new CleanWebpackPlugin(),
@@ -113,6 +112,17 @@ module.exports = () => {
                 { from: 'src/images', to: 'images' },
                 { from: 'src/fonts', to: 'fonts' }
               ]),
+              ...htmlPages,
+              new MiniCssExtractPlugin({
+                filename: 'css/[name].css'
+              }),
+              new webpack.ProvidePlugin({
+                /* Use when importing individual BS components */
+                // '$': 'jquery/dist/jquery.slim.js',
+                // 'jQuery': 'jquery/dist/jquery.slim.js',
+                // 'Popper': 'popper.js/dist/umd/popper', /* required for tooltips */
+                // 'Util': 'exports-loader?Util!bootstrap/js/dist/util'
+              }),
               new FaviconsWebpackPlugin({
                 // The favicon app title (see https://github.com/haydenbleasel/favicons#usage)
                 // title: 'Webpack App',
@@ -120,11 +130,11 @@ module.exports = () => {
                 // Your source logo
                 logo: './favicon.png',
                 // The prefix for all image files (might be a folder or a name)
-                prefix: 'favicon[hash]',
+                prefix: 'favicon-[hash]',
                 // Emit all stats of the generated icons
                 emitStats: false,
                 // The name of the json containing all favicon information
-                statsFilename: 'faviconstats[hash].json',
+                statsFilename: 'faviconstats-[hash].json',
                 // Generate a cache file with control hashes and
                 // don't rebuild the favicons until those hashes change
                 persistentCache: true,
@@ -146,17 +156,6 @@ module.exports = () => {
                   yandex: true,
                   windows: true
                 }
-              }),
-              ...htmlPages,
-              new MiniCssExtractPlugin({
-                filename: 'css/[name].css'
-              }),
-              new webpack.ProvidePlugin({
-                /* Use when importing individual BS components */
-                // '$': 'jquery/dist/jquery.slim.js',
-                // 'jQuery': 'jquery/dist/jquery.slim.js',
-                // 'Popper': 'popper.js/dist/umd/popper', /* required for tooltips */
-                // 'Util': 'exports-loader?Util!bootstrap/js/dist/util'
               }),
               new WriteFilePlugin(),
               new CompressionPlugin()
