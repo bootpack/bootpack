@@ -1,4 +1,4 @@
-# ![bootpack](thumbnail.png) &middot; [![GitHub release](https://img.shields.io/github/release/bootpack/bootpack.svg)](https://GitHub.com/bootpack/bootpack/releases/) [![Build Status](https://travis-ci.com/bootpack/bootpack.svg?branch=master)](https://travis-ci.com/bootpack/bootpack) [![GitHub license](https://img.shields.io/github/license/bootpack/bootpack.svg)](https://github.com/bootpack/bootpack/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/bootpack/bootpack/blob/master/.github/CONTRIBUTING.md) [![GitHub stars](https://img.shields.io/github/stars/bootpack/bootpack.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/bootpack/bootpack/stargazers/) [![Greenkeeper badge](https://badges.greenkeeper.io/bootpack/bootpack.svg)](https://greenkeeper.io/)
+# ![bootpack](thumbnail.png) &middot; [![GitHub release](https://img.shields.io/github/release/bootpack/bootpack.svg)](https://GitHub.com/bootpack/bootpack/releases/) [![Build Status](https://travis-ci.com/bootpack/bootpack.svg?branch=master)](https://travis-ci.com/bootpack/bootpack) [![GitHub license](https://img.shields.io/github/license/bootpack/bootpack.svg)](https://github.com/bootpack/bootpack/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/bootpack/bootpack/blob/master/.github/CONTRIBUTING.md) [![Greenkeeper badge](https://badges.greenkeeper.io/bootpack/bootpack.svg)](https://greenkeeper.io/) [![GitHub stars](https://img.shields.io/github/stars/bootpack/bootpack.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/bootpack/bootpack/stargazers/)
 
 ## bootpack
 
@@ -42,9 +42,9 @@ npm start
 ### Test
 `npm run test` - Runs lint tests (+ additional unit and e2e tests can be added here as needed)   
 `npm run lint` - Runs `npm run lint:js` and `npm run lint:styles`   
-`npm run lint:js` - Runs eslint test on `src/*/*.js` files
-`npm run lint:css` - Runs stylelint test on `src/css/*.css` files
-`npm run lint:scss` - Runs stylelint test on `src/scss/*.scss` files
+`npm run lint:js` - Runs eslint test on `src/*/*.js` files   
+`npm run lint:css` - Runs stylelint test on `src/css/*.css` files   
+`npm run lint:scss` - Runs stylelint test on `src/scss/*.scss` files   
 `npm run lint:styles` - Runs `npm run lint:css` and `npm run lint:scss`
 
 ### Tools
@@ -64,7 +64,9 @@ npm start
 The webpack build creates a `dist` directory that closely mimics the `src` directory. 
 - In production mode, the `dist` directory contains files that are minified & compressed. 
 - In development mode, files are kept unminified with sourcemapping turned on as needed & no compression output. 
-- Webpack server is available to speed up development via live browser refreshes on code change while preserving the ability to inspect the `dist` directory. The `src` directory contains starter files to get the project off the ground quickly.
+- Webpack server is available to speed up development via live browser refreshes on code change while preserving the ability to inspect the `dist` directory. 
+
+The `src` directory contains starter files to get your project off the ground quickly.
 
 #### Webpack: Process
 The webpack task runner builds the site with the following commands:
@@ -91,7 +93,7 @@ Bootstrap 4 is imported into `scss/boostrap.scss` via `@import "~bootstrap/scss/
 
 
 #### Bootstrap: JS Files
-Bootstap 4 is imported in the index.js file via `bootstrap.bundle` which contains the full bootstrap JavaScript plus the `popper.js` tooltip dependency. Below the `bootstrap.bundle` import, comments contain other methods to import bootstrap. End-users may choose to import `bootstrap.bundle`, `bootstrap`, or individual components (**recommended to minimize bundle size**).
+Bootstap 4 is imported in the index.js file via `bootstrap.bundle` which contains the full bootstrap JavaScript plus the `popper.js` tooltip dependency.   Below the `bootstrap.bundle` import, comments contain other methods to import bootstrap. End-users may choose to import `bootstrap.bundle`, `bootstrap`, or individual components (**recommended to minimize bundle size**).
 
 ### File Structure
 `src` file structure
