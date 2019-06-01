@@ -114,7 +114,7 @@ module.exports = () => {
               ]),
               ...htmlPages,
               new MiniCssExtractPlugin({
-                filename: 'css/[name].css'
+                filename: 'css/styles.css'
               }),
               new webpack.ProvidePlugin({
                 /* Use when importing individual BS components */
@@ -128,7 +128,7 @@ module.exports = () => {
                 // title: 'Webpack App',
 
                 // Your source logo
-                logo: './favicon.png',
+                logo: './src/favicon.png',
                 // The prefix for all image files (might be a folder or a name)
                 prefix: 'favicon-[hash]',
                 // Emit all stats of the generated icons
