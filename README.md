@@ -2,11 +2,11 @@
 
 ## bootpack
 
-`bootpack` is a boilerplate template for getting a web page set up quickly using webpack for task running and bootstrap for development.
+`bootpack` is a boilerplate template to create multi-page websites using bootstrap for development and webpack for task running.
 
 **Bootstrap + Webpack = &hearts;**
 - **Just Develop:** 4 steps to [get started](#installation). Launch a dev server with live reloading.
-- **Pre-Configured Build:** A pre-configured webpack config simplifies overcomplicated build processes.
+- **Pre-Configured:** A pre-configured webpack config simplifies overcomplicated build processes.
 - **Predictable File Output:** Keep your CSS where you want it; out of your JavaScript files! The `dist` directory will closely match the `src` directory.
 - **Minified Files:** JavaScript and CSS is minified and output as single files.
 - **Compressed Resources:** JS, CSS, fonts, images and favicons are gzipped for maximum compression.
@@ -41,9 +41,11 @@ npm start
 
 ### Test
 `npm run test` - Runs lint tests (+ additional unit and e2e tests can be added here as needed)   
-`npm run lint` - Runs eslint and stylelint tests   
-`npm run lint:js` - Runs eslint test   
-`npm run lint:css` - Runs stylelint test
+`npm run lint` - Runs `npm run lint:js` and `npm run lint:styles`   
+`npm run lint:js` - Runs eslint test on `src/*/*.js` files
+`npm run lint:css` - Runs stylelint test on `src/css/*.css` files
+`npm run lint:scss` - Runs stylelint test on `src/scss/*.scss` files
+`npm run lint:styles` - Runs `npm run lint:css` and `npm run lint:scss`
 
 ### Tools
 `npm run compress:images` 
@@ -68,46 +70,74 @@ The webpack build creates a `dist` directory that closely mimics the `src` direc
 The webpack task runner builds the site with the following commands:
 - `npm run build` will build production. 
 - `npm run watch` builds development mode and watches for file changes. 
-- `npm run start` builds development mode, watches for file changes, opens the browser when first ran and refreshes the browser when files change.
-1. The `dist` directory is cleaned and rebuilt or modified.
-2. Images and fonts are copied from `src/images` -> `dist/images` and `src/fonts` -> `dist/fonts`.
+- `npm start` builds development mode, watches for file changes, opens the browser and refreshes when files change.
+1. The `dist` directory is cleaned on first built or modified on change (`npm start` or `npm run watch`).
+2. `src/**/*.html` is copied to `dist/**/*.html`
 3. Favicons are generated and injected into the dist index.html file from the `src/favicon.png` file. 
-4. `src/**/*.html` is copied to `dist/**/*.html`
-5. [Optional]: Individual, global bootstrap components are injected into the index.js.
-6. CSS files imported into `src/css/main.css` are bundled together and minified.
-8. Files are compressed with gzip compression.
+4. Bootstrap components are imported into the index.js and output to `dist/index.js`.
+5. CSS/SCSS files in `src/css/` and `src/scss/` are bundled together, minified and output to `dist/styles.css`.
+6. Images and fonts are copied from `src/images` -> `dist/images` and `src/fonts` -> `dist/fonts`.
+7. Files are compressed with gzip compression.
 
 ### Bootstrap 4
+#### Bootstrap: SCSS Files
+Bootstrap 4 is imported into `scss/boostrap.scss` via `@import "~bootstrap/scss/*bootstrap*";` import rules. Optional components can be excluded by commenting out the `@import` rules in this file (**recommended to minimize bundle size**). 
+
+##### SCSS/CSS Overrides & Custom Styles:
+- `scss/variables.scss` is included to override all of bootstrap's built in variables.
+- `scss/custom.scss` is included to add custom scss to the project.
+- `css/custom.css` is included to add custom css to the project.
+- `css/fonts.css` is included to import local fonts into the project. Open Sans has been included as an example.
+
+
 #### Bootstrap: JS Files
 Bootstap 4 is imported in the index.js file via `bootstrap.bundle` which contains the full bootstrap JavaScript plus the `popper.js` tooltip dependency. Below the `bootstrap.bundle` import, comments contain other methods to import bootstrap. End-users may choose to import `bootstrap.bundle`, `bootstrap`, or individual components (**recommended to minimize bundle size**).
-
-#### Bootstrap: CSS Files
-Bootstrap 4 is imported into main.css via `@import "~bootstrap/scss/bootstrap";`. This imports the full bootstrap 4 CSS. Optional, individual components can be imported using the commented out `@import` rules in this file (**recommended to minimize bundle size**).
 
 ### File Structure
 `src` file structure
 ```
 |-css/
+|--custom.css
+|--fonts.css
 |-fonts/
 |--OpenSans/
-|--[font_styles]/
+|----[font_styles]/
 |-images/
-|-js/index.js
-|-index.html
+|--[images]
+|-js
+|--index.js
+|-scss/
+|--boostrap.scss
+|--custom.scss
+|--variables.scss
+|-templates/
+|--[templates]/
+|----index.html
 |-favicon.png
+|-index.html
 ```
 
 `dist` file structure
 ```
-/* All files minified & gzipped */
-|-css/main.css
+/* All files compressed, minified & gzipped */
+|-css
+|--index.css
+|--index.css.gz
 |-fonts/
 |--OpenSans/
-|--[font_styles]/
+|----[font_styles]/
 |-images/
-|-js/index.js
-|-index.html
+|--[images]
+|-js
+|--index.js
+|--index.js.gz
+|-templates/
+|--[templates]/
+|----index.html
+|----index.html.gz
 |-[favicons]
+|-index.html
+|-index.html.gz
 ```
 
 ## Contributing
