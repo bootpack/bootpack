@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const FaviconsPlugin = require('favicons-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -112,7 +112,6 @@ module.exports = () => {
                 { from: 'src/images', to: 'images' },
                 { from: 'src/fonts', to: 'fonts' }
               ]),
-              ...htmlPages,
               new MiniCssExtractPlugin({
                 filename: 'css/styles.css'
               }),
@@ -123,12 +122,12 @@ module.exports = () => {
                 // 'Popper': 'popper.js/dist/umd/popper', /* required for tooltips */
                 // 'Util': 'exports-loader?Util!bootstrap/js/dist/util'
               }),
-              new FaviconsWebpackPlugin({
+              new FaviconsPlugin({
                 // The favicon app title (see https://github.com/haydenbleasel/favicons#usage)
                 // title: 'Webpack App',
 
                 // Your source logo
-                logo: './src/favicon.png',
+                logo: path.resolve(__dirname, 'src/favicon.png'),
                 // The prefix for all image files (might be a folder or a name)
                 prefix: 'favicon-[hash]',
                 // Emit all stats of the generated icons
@@ -137,7 +136,7 @@ module.exports = () => {
                 statsFilename: 'faviconstats-[hash].json',
                 // Generate a cache file with control hashes and
                 // don't rebuild the favicons until those hashes change
-                persistentCache: true,
+                persistentCache: false,
                 // Inject the html into the html-webpack-plugin
                 inject: true,
                 // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
@@ -145,18 +144,19 @@ module.exports = () => {
 
                 // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
                 icons: {
-                  android: true,
-                  appleIcon: true,
-                  appleStartup: true,
-                  coast: true,
+                  android: !devMode,
+                  appleIcon: !devMode,
+                  appleStartup: !devMode,
+                  coast: !devMode,
                   favicons: true,
-                  firefox: true,
-                  opengraph: true,
-                  twitter: true,
-                  yandex: true,
-                  windows: true
+                  firefox: !devMode,
+                  opengraph: !devMode,
+                  twitter: !devMode,
+                  yandex: !devMode,
+                  windows: !devMode
                 }
               }),
+              ...htmlPages,
               new WriteFilePlugin(),
               new CompressionPlugin()
             ],
@@ -193,8 +193,7 @@ module.exports = () => {
                   use: {
                     loader: 'file-loader',
                     options: {
-                      name: '[name].[ext]',
-                      outputPath: 'images/'
+                      name: '[path][name].[ext]'
                     }
                   }
                 },
@@ -203,15 +202,18 @@ module.exports = () => {
                   use: {
                     loader: 'file-loader',
                     options: {
-                      name: '[name].[ext]',
-                      outputPath: 'fonts/'
+                      name: '[path][name].[ext]'
                     }
                   }
                 },
                 {
-                  test: /.html$/,
-                  include: path.resolve(__dirname, 'src'),
-                  use: ['raw-loader']
+                  test: /\.html$/,
+                  use: [ {
+                    loader: 'html-loader',
+                    options: {
+                      minimize: true
+                    }
+                  }]
                 }
               ]
             }
