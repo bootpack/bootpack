@@ -1,7 +1,6 @@
 # ![bootpack](thumbnail.png) &middot; [![GitHub release](https://img.shields.io/github/release/bootpack/bootpack.svg)](https://GitHub.com/bootpack/bootpack/releases/) [![Build Status](https://travis-ci.com/bootpack/bootpack.svg?branch=master)](https://travis-ci.com/bootpack/bootpack) [![GitHub license](https://img.shields.io/github/license/bootpack/bootpack.svg)](https://github.com/bootpack/bootpack/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/bootpack/bootpack/blob/master/.github/CONTRIBUTING.md) [![Greenkeeper badge](https://badges.greenkeeper.io/bootpack/bootpack.svg)](https://greenkeeper.io/) [![GitHub stars](https://img.shields.io/github/stars/bootpack/bootpack.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/bootpack/bootpack/stargazers/)
 
 ## bootpack
-
 `bootpack` is a boilerplate template to create multi-page websites using bootstrap for development and webpack for task running.
 
 **Bootstrap + Webpack = &hearts;**
@@ -58,7 +57,6 @@ npm start
 - Edit `tools/image-generator.js` to change the image size
 
 ## About
-
 ### Webpack 4
 #### Webpack: Builds
 The webpack build creates a `dist` directory that closely mimics the `src` directory. 
@@ -90,7 +88,6 @@ Bootstrap 4 is imported into `scss/boostrap.scss` via `@import "~bootstrap/scss/
 - `scss/custom.scss` is included to add custom scss to the project.
 - `css/custom.css` is included to add custom css to the project.
 - `css/fonts.css` is included to import local fonts into the project. Open Sans has been included as an example.
-
 
 #### Bootstrap: JS Files
 Bootstap 4 is imported in the index.js file via `bootstrap.bundle` which contains the full bootstrap JavaScript plus the `popper.js` tooltip dependency.   Below the `bootstrap.bundle` import, comments contain other methods to import bootstrap. End-users may choose to import `bootstrap.bundle`, `bootstrap`, or individual components (**recommended to minimize bundle size**).
@@ -143,9 +140,7 @@ Bootstap 4 is imported in the index.js file via `bootstrap.bundle` which contain
 ```
 
 ## Contributing
-
 Please contribute using [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). Create a feature branch, add commits, and [open a pull request](https://github.com/bootpack/bootpack/compare/).
-
 
 ## Support
 Please [open an issue](https://github.com/bootpack/bootpack/issues/new) for support.
