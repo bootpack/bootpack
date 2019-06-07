@@ -22,8 +22,31 @@
 - [Support](#support)
 
 ## Getting Started
+
+### Use bootpack as a template 
+
+*Using bootpack as template is the recommended method.*
+
+1. To get started, click the "Use this template" button at the top of this repository.   
+![Use this template button](.github/images/use_this_template_button.jpg?raw=true "Use this template")
+
+2. After clicking the "Use this template" button, you will be asked to enter a name for a new repostiory. This repository will be generated with all of the bootpack repository’s files and folders.   
+
+3. Next, simply perform the following commands in your terminal to get started, replacing `[YOUR_REPOSITORY_LOCATION]/[REPOSITORY_NAME]` with the location and repository names you chose in the previous step.
+
 ```
-git clone https://github.com/bootpack/bootpack.git
+git clone https://github.com/[YOUR_REPOSITORY_LOCATION]/[REPOSITORY_NAME].git
+npm install
+npm run build
+npm start
+```
+
+### Fork/Clone bootpack
+
+bootpack can also be forked into your own repository and cloned or cloned directly using the following commands.
+
+```
+git clone https://github.com/[bootpack]/bootpack.git
 npm install
 npm run build
 npm start
