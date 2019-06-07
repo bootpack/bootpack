@@ -32,10 +32,10 @@
 
 2. After clicking the "Use this template" button, you will be asked to enter a name for a new repostiory. This repository will be generated with all of the bootpack repository’s files and folders.   
 
-3. Next, simply perform the following commands in your terminal to get started, replacing `[YOUR_REPOSITORY_LOCATION]/[REPOSITORY_NAME]` with the location and repository names you chose in the previous step.
+3. Next, simply perform the following commands in your terminal to get started, replacing `[REPOSITORY_LOCATION]/[REPOSITORY_NAME]` with the location and repository names you chose in the previous step.
 
 ```
-git clone https://github.com/[YOUR_REPOSITORY_LOCATION]/[REPOSITORY_NAME].git
+git clone https://github.com/[REPOSITORY_LOCATION]/[REPOSITORY_NAME].git
 npm install
 npm run build
 npm start
@@ -46,7 +46,7 @@ npm start
 bootpack can also be forked into your own repository and cloned or cloned directly using the following commands.
 
 ```
-git clone https://github.com/[bootpack]/bootpack.git
+git clone https://github.com/bootpack/bootpack.git
 npm install
 npm run build
 npm start
