@@ -23,7 +23,10 @@
 
 ## Getting Started
 
-### Use bootpack as a template 
+### Prerequisites
+- This project uses [Node.js v8.15.1](https://nodejs.org/en/download/) or greater.
+
+### Use bootpack as a template (Option 1)
 
 *Using bootpack as template is the recommended method.*
 
@@ -32,16 +35,16 @@
 
 2. After clicking the "Use this template" button, you will be asked to enter a name for a new repostiory. This repository will be generated with all of the bootpack repository’s files and folders.   
 
-3. Next, simply perform the following commands in your terminal to get started, replacing `[REPOSITORY_LOCATION]/[REPOSITORY_NAME]` with the location and repository names you chose in the previous step.
+3. Next, simply perform the following commands in your terminal to get started, replacing `[USERNAME]/[REPOSITORY_NAME]` with the location and repository names you chose in the previous step.
 
 ```
-git clone https://github.com/[REPOSITORY_LOCATION]/[REPOSITORY_NAME].git
+git clone https://github.com/[USERNAME]/[REPOSITORY_NAME].git
 npm install
 npm run build
 npm start
 ```
 
-### Fork/Clone bootpack
+### Fork/Clone bootpack  (Option 2)
 
 bootpack can also be forked into your own repository and cloned or cloned directly using the following commands.
 
