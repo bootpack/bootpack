@@ -1,6 +1,6 @@
 {
   "name": "bootpack",
-  "version": "0.11.2",
+  "version": "0.11.3",
   "author": "ZachTRice",
   "description": "A webpack and bootstrap boilerplate template for building web pages quickly.",
   "license": "MIT",
