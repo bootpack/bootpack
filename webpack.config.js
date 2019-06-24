@@ -55,8 +55,8 @@ var generateHtmlPages = function(templateDir, relOutput) {
     if (extension && (extension === 'html' || extension === 'htm')) {
       htmlPages.push(new HtmlWebpackPlugin({
         hash: true,
-        filename: `${relOutput}\\${name}.${extension}`,
-        template: path.resolve(__dirname, `${templateDir}\\${name}.${extension}`),
+        filename: `${relOutput}/${name}.${extension}`,
+        template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
         inject: true,
         minify: {
           removeComments: !devMode,
@@ -76,7 +76,7 @@ module.exports = () => {
       asyncForEach(results, async directory => {
         await waitFor(50);
         dirCount--;
-        var relOutput = directory.replace('src\\', '.\\');
+        var relOutput = directory.replace('src', '.');
         generateHtmlPages(directory, relOutput);
         if (dirCount <= 0) {
           await waitFor(50);
