@@ -69,6 +69,7 @@
     "postcss-loader": "^3.0.0",
     "precss": "^4.0.0",
     "sass-loader": "^7.1.0",
+    "shelljs": "^0.8.3",
     "stylelint": "^10.0.1",
     "stylelint-config-twbs-bootstrap": "^0.3.1",
     "uglifyjs-webpack-plugin": "^2.1.3",
