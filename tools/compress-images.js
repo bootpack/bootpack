@@ -1,8 +1,18 @@
 const fs = require('fs');
+const shell = require('shelljs');
 const chalk = require('chalk');
 const compressImages = require('compress-images');
 const imageInput = './src/images-original/**/*.{jpg,JPG,jpeg,JPEG,png,svg,gif}';
 const imageOutput = './src/images/';
+
+const dirs = [
+  'src/images-original'
+];
+
+dirs.forEach((dir) => {
+  console.log('Removing', dir);
+  shell.rm('-rf', dir);
+});
 
 fs.rename('./src/images', './src/images-original', function (err) {
   if (err) {
