@@ -82,7 +82,7 @@ module.exports = () => {
           await waitFor(50);
           resolve({
             entry: {
-              'index': './src/js/index.js'
+              index: './src/js/index.js'
             },
             devtool: 'inline-source-map',
             devServer: {
@@ -208,7 +208,7 @@ module.exports = () => {
                 },
                 {
                   test: /\.html$/,
-                  use: [ {
+                  use: [{
                     loader: 'html-loader',
                     options: {
                       minimize: true
