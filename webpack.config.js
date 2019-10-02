@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const FaviconsPlugin = require('favicons-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -122,41 +122,29 @@ module.exports = () => {
                 // 'Popper': 'popper.js/dist/umd/popper', /* required for tooltips */
                 // 'Util': 'exports-loader?Util!bootstrap/js/dist/util'
               }),
-              new FaviconsPlugin({
-                // The favicon app title (see https://github.com/haydenbleasel/favicons#usage)
-                // title: 'Webpack App',
-
-                // Your source logo
-                logo: path.resolve(__dirname, 'src/favicon.png'),
-                // The prefix for all image files (might be a folder or a name)
-                prefix: 'favicon-[hash]',
-                // Emit all stats of the generated icons
-                emitStats: false,
-                // The name of the json containing all favicon information
-                statsFilename: 'faviconstats-[hash].json',
-                // Generate a cache file with control hashes and
-                // don't rebuild the favicons until those hashes change
-                persistentCache: false,
-                // Inject the html into the html-webpack-plugin
+              ...htmlPages,
+              new FaviconsWebpackPlugin({
+                logo: path.join(__dirname, 'src/favicon.png'),
+                publicPath: './',
+                prefix: 'favicons',
+                cache: false,
                 inject: true,
-                // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
-                background: '#fff',
-
-                // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
-                icons: {
-                  android: !devMode,
-                  appleIcon: !devMode,
-                  appleStartup: !devMode,
-                  coast: !devMode,
-                  favicons: true,
-                  firefox: !devMode,
-                  opengraph: !devMode,
-                  twitter: !devMode,
-                  yandex: !devMode,
-                  windows: !devMode
+                favicons: {
+                  background: '#fff',
+                  icons: {
+                    android: !devMode,
+                    appleIcon: !devMode,
+                    appleStartup: !devMode,
+                    coast: !devMode,
+                    favicons: true,
+                    firefox: !devMode,
+                    opengraph: !devMode,
+                    twitter: !devMode,
+                    yandex: !devMode,
+                    windows: !devMode
+                  }
                 }
               }),
-              ...htmlPages,
               new WriteFilePlugin(),
               new CompressionPlugin()
             ],
