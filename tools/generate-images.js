@@ -6,8 +6,8 @@ function GetParamaterValue(param) {
     var position = process.argv.indexOf(param,2);
     if(position != -1 && process.argv.length >= position+2) {
       var value = process.argv[position+1];
+      return value;
     }
-    return value;
   }
   return -1;
 }
@@ -17,10 +17,12 @@ var height = parseInt(GetParamaterValue("height"));
 
 
 if(width <= 0) {
+  width = 800;
   console.log("Width must be a number above 0.");
 }
 
 if(height <= 0) {
+  height = 600;
   console.log("Height must be a number above 0.");
 }
 
