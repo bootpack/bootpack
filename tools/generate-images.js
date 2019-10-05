@@ -2,28 +2,27 @@ var fs = require('fs');
 var imgGen = require('js-image-generator');
 
 function GetParamaterValue(param) {
-  if(process.argv != null) {
-    var position = process.argv.indexOf(param,2);
-    if(position != -1 && process.argv.length >= position+2) {
-      var value = process.argv[position+1];
+  if (process.argv != null) {
+    var position = process.argv.indexOf(param, 2);
+    if (position !== -1 && process.argv.length >= position + 2) {
+      var value = process.argv[position + 1];
       return value;
     }
   }
   return -1;
 }
 
-var width = parseInt(GetParamaterValue("width"));
-var height = parseInt(GetParamaterValue("height"));
+var width = parseInt(GetParamaterValue('width'));
+var height = parseInt(GetParamaterValue('height'));
 
-
-if(width <= 0 || isNaN(width)) {
+if (width <= 0 || isNaN(width)) {
   width = 800;
-  console.log("Width must be a number above 0.");
+  console.log('Width must be a number above 0.');
 }
 
-if(height <= 0 || isNaN(height)) {
+if (height <= 0 || isNaN(height)) {
   height = 600;
-  console.log("Height must be a number above 0.");
+  console.log('Height must be a number above 0.');
 }
 
 // Generate one image
