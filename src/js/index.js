@@ -21,6 +21,13 @@ import 'bootstrap/dist/js/bootstrap.bundle'; /* Includes popper.js */
 // import 'bootstrap/js/dist/tooltip'; /* requires popper.js - Uncomment 'popper.js' in webpack.config.js */
 // import 'bootstrap/js/dist/util';
 
+/* If in development mode, watch for changes to html files */
 if (process.env.NODE_ENV === 'development') {
-  require('../index.html'); /* Require so webpack watches changes to html file */
+  const glob = require('glob');
+  const path = require('path');
+
+  require('../index.html');
+  glob.sync('./templates/**/*.js').forEach(function(file) {
+    require(path.resolve(file));
+  });
 }
