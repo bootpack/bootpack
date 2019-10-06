@@ -78,9 +78,9 @@ npm start
 - Run before building or during watch. Only the `images` directory will be copied to the `dist` directory.   
 - Edit `tools/image-compress.js` to change the image compress. See: https://www.npmjs.com/package/compress-images for settings
 
-`npm run generate:images` 
+`npm run generate:images width ### height ###` 
 - Creates a placeholder.jpg image in the `images` directory   
-- Edit `tools/image-generator.js` to change the image size
+- Replace `###` with a numeric value representing wwidth and height. If no width/height is specified, the placeholder will default to 800px x 600px.
 
 ## About
 ### Webpack 4
