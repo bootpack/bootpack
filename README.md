@@ -1,16 +1,16 @@
 # ![bootpack](thumbnail.png) &middot; [![GitHub release](https://img.shields.io/github/release/bootpack/bootpack.svg)](https://GitHub.com/bootpack/bootpack/releases/) [![Build Status](https://travis-ci.com/bootpack/bootpack.svg?branch=master)](https://travis-ci.com/bootpack/bootpack) [![GitHub license](https://img.shields.io/github/license/bootpack/bootpack.svg)](https://github.com/bootpack/bootpack/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/bootpack/bootpack/blob/master/.github/CONTRIBUTING.md) [![GitHub stars](https://img.shields.io/github/stars/bootpack/bootpack.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/bootpack/bootpack/stargazers/)
 
 ## bootpack
-`bootpack` is a boilerplate template to create multi-page websites using bootstrap for development and webpack for task running. View the latest version at [https://bootpack.github.io/bootpack/](https://bootpack.github.io/bootpack/).
+`bootpack` is a boilerplate template for creating multi-page websites using bootstrap for development and webpack for task running. View the latest version at [https://bootpack.github.io/bootpack/](https://bootpack.github.io/bootpack/).
 
 **Bootstrap + Webpack = &hearts;**
-- **Just Develop:** 4 steps to [get started](#installation). Launch a dev server with live reloading.
+- **Just Develop:** 4 steps to [get started](#getting-started). Launch a dev server with live reloading.
 - **Pre-Configured:** A pre-configured webpack config simplifies overcomplicated build processes.
 - **Predictable File Output:** Keep your CSS where you want it; out of your JavaScript files! The `dist` directory will closely match the `src` directory.
 - **Minified Files:** JavaScript and CSS is minified and output as single files.
 - **Compressed Resources:** JS, CSS, fonts, images and favicons are gzipped for maximum compression.
-- **Dev and Production Builds:** [Build](#build) the project in development mode with sourcemapping enabled or production mode.
-- **Development Tools:** Generate & compress images + more [tools](#tools) to ease web development.
+- **Dev and Production Builds:** [Build](#build) the project in development mode with sourcemapping enabled or minified for production mode.
+- **Development Tools:** Generate & compress images, create placeholder images + more [tools](#tools) to ease web development.
 - **Built-In Tests:** Lint JavaScript and CSS files with [one command](#test).
 
 ## Table of Contents
@@ -55,14 +55,14 @@ npm run build
 npm start
 ```
 - Navigate to http://localhost:8080 in a browser. 
-- Save a file in the project to refresh the browser. 
 - Press ctrl+c in the terminal to stop serving.
 
 ## Usage
 ### Build
-`npm run build` - Creates the project in **production** mode (minified) and outputs to the dist directory.   
-`npm run watch` - Creates the project in **development** mode (unminified). This mode watches for changes and outputs to the dist directory.   
-`npm start` - Creates the project in **development** mode (unminified). This mode watches for changes, outputs to the dist directory and live reloades the page.
+`npm run build` - Creates the project in **production** mode (minified) and outputs to the `dist` directory.   
+`npm run build:dev` - Creates the project in **development** mode (unminified) and outputs to the `dist` directory.  
+`npm start` - Creates the project in **development** mode (unminified). This mode starts a development server at localhost:8080.   
+`npm run watch` - Creates the project in **development** mode (unminified). This mode starts a development server at localhost:8080, watches for changes and refreshes the browser on change.   
 
 ### Test
 `npm run test` - Runs lint tests (+ additional unit and e2e tests can be added here as needed)   
@@ -72,15 +72,38 @@ npm start
 `npm run lint:scss` - Runs stylelint test on `src/scss/*.scss` files   
 `npm run lint:styles` - Runs `npm run lint:css` and `npm run lint:scss`
 
+### Deploy
+`npm run deploy:gh-pages` 
+- Deploys the current version of the master branch to gh-pages.
+- Only deploys when the package.json version has changed.
+- The package.json version number will be used for the commit name   
+See example commit history: https://github.com/bootpack/bootpack/commits/gh-pages
+- Note: Requires a `gh-pages` branch to be created first. If you have not created an empty `gh-pages` branch, do the following:
+```
+# Create an orphan branch named gh-pages
+git checkout --orphan gh-pages
+
+# Remove all files from staging
+git rm -rf . 
+
+# Create an empty commit so that you will be able to push on the branch next
+git commit --allow-empty -m "Init empty branch"
+
+# Push the branch
+git push origin gh-pages
+```
+
 ### Tools
 `npm run compress:images` 
 - Optimizes images in the `images` directory, saves original images to `images-original`.   
 - Run before building or during watch. Only the `images` directory will be copied to the `dist` directory.   
-- Edit `tools/image-compress.js` to change the image compress. See: https://www.npmjs.com/package/compress-images for settings
+- Edit `tools/image-compress.js` to change the image compress.   
+See: https://www.npmjs.com/package/compress-images for settings
 
 `npm run generate:images width ### height ###` 
-- Creates a placeholder.jpg image in the `images` directory   
-- Replace `###` with a numeric value representing wwidth and height. If no width/height is specified, the placeholder will default to 800px x 600px.
+- Creates a `placeholder.jpg` image in the `images` directory   
+- Replace `###` with a numeric value representing width and height. 
+- If no width/height is specified, the placeholder will default to 800px x 600px.
 
 ## About
 ### Webpack 4
@@ -93,13 +116,9 @@ The webpack build creates a `dist` directory that closely mimics the `src` direc
 The `src` directory contains starter files to get your project off the ground quickly.
 
 #### Webpack: Process
-The webpack task runner builds the site with the following commands:
-- `npm run build` will build production. 
-- `npm run watch` builds development mode and watches for file changes. 
-- `npm start` builds development mode, watches for file changes, opens the browser and refreshes when files change.
-1. The `dist` directory is cleaned on first built or modified on change (`npm start` or `npm run watch`).
+1. The `dist` directory is cleaned on first built or modified on change (`npm run watch`).
 2. `src/**/*.html` is copied to `dist/**/*.html`
-3. Favicons are generated and injected into the dist index.html file from the `src/favicon.png` file. 
+3. Favicons are generated and injected into the dist index.html file from the `src/favicon.png` file and output to `dist/favicons/[favicon].ext`. 
 4. Bootstrap components are imported into the index.js and output to `dist/index.js`.
 5. CSS/SCSS files in `src/css/` and `src/scss/` are bundled together, minified and output to `dist/styles.css`.
 6. Images and fonts are copied from `src/images` -> `dist/images` and `src/fonts` -> `dist/fonts`.
@@ -160,7 +179,8 @@ Bootstap 4 is imported in the index.js file via `bootstrap.bundle` which contain
 |--[templates]/
 |----index.html
 |----index.html.gz
-|-[favicons]
+|-favicons/
+|--[favicons]
 |-index.html
 |-index.html.gz
 ```
