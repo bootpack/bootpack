@@ -62,3 +62,7 @@ dist/
 
 # Original images directory created by `npm run compress:images`
 images-original/
+
+# Build process directories
+.git
+.temp
