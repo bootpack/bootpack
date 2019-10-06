@@ -1,0 +1,14 @@
+{
+  "version": "0.13.0",
+  "name": "bootpack",
+  "description": "A webpack and bootstrap boilerplate template for building web pages quickly.",
+  "icons": {
+    "60": "favicons/firefox_app_60x60.png",
+    "128": "favicons/firefox_app_128x128.png",
+    "512": "favicons/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "ZachTRice",
+    "url": null
+  }
+}
