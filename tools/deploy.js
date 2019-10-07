@@ -1,5 +1,5 @@
 const shell = require('shelljs');
-const PACKAGE_VERSION = 'v' + shell.exec('node -p "require(\'./package.json\').version"');
+const pkg = require('../package.json');
 
 // Deploy to gh-pages branch
 if (process.argv[3] === 'gh-pages') {
@@ -49,8 +49,8 @@ if (process.argv[3] === 'gh-pages') {
     shell.exit(1);
   }
 
-  if (shell.exec('git commit -m ' + PACKAGE_VERSION).code !== 0) {
-    shell.echo('Error: \'git commit -m ' + PACKAGE_VERSION + '\' failed');
+  if (shell.exec('git commit -m v' + pkg.version).code !== 0) {
+    shell.echo('Error: \'git commit -m v' + pkg.version + '\' failed');
     shell.exit(1);
   }
 
