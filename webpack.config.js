@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const pkg = require('./package.json');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -69,6 +70,7 @@ var generateHtmlPages = function(templateDir, relOutput) {
 
 module.exports = () => {
   return new Promise(resolve => {
+    console.log('bootpack v' + pkg.version);
     dirWalk('./src', function(err, results) {
       if (err) throw err;
       generateHtmlPages('./src', './');
