@@ -95,15 +95,43 @@ git push origin gh-pages
 
 ### Tools
 `npm run compress:images` 
-- Optimizes images in the `images` directory, saves original images to `images-original`.   
-- Run before building or during watch. Only the `images` directory will be copied to the `dist` directory.   
+- Optimizes images in the `images` directory, saves original images to `images-original`.
+- Run before building or during watch. Only the `images` directory will be copied to the `dist` directory.
 - Edit `tools/image-compress.js` to change the image compress.   
 See: https://www.npmjs.com/package/compress-images for settings
 
-`npm run generate:images width ### height ###` 
-- Creates a `placeholder.jpg` image in the `images` directory   
-- Replace `###` with a numeric value representing width and height. 
-- If no width/height is specified, the placeholder will default to 800px x 600px.
+`npm run generate:images` 
+- Creates a `placeholder.jpg` image in the `images` directory.
+- Placeholder image is 800px x 800px by default.
+
+`npm run generate:images -- --width=### --height=### --title='placeholder'`
+- Creates custom images based on values provided in parameters.
+- Replace `###` with a numeric value representing width and height (defaults to 800px if not provided).
+- Replace `placeholder` in title parameter with any string to change the file name.
+
+`npm run generate:images:multiple`
+- Uses `placeholders.json` in the project root to generate multiple images
+- Each image is an object within an "images" array object. See example below:
+```
+{
+  "images": [
+    {
+      "title": "banner",
+      "width": 1200,
+      "height": 320
+    },
+    {
+      "title": "thumbnail",
+      "width": 80,
+      "height": 80
+    }
+  ]
+}
+```
+
+`npm run generate:images -- multiple='path/to/custom_placeholders.json'`
+- Generate multiple images using a custom placeholders file.
+
 
 ## About
 ### Webpack 4
