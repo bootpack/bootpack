@@ -1,22 +1,12 @@
-var fs = require('fs');
-var imgGen = require('js-image-generator');
+const fs = require('fs');
+const argv = require('yargs').argv;
+const imgGen = require('js-image-generator');
 
-var defaultSize = 800;
-
-function GetParamaterValue(param) {
-  if (process.argv != null) {
-    var position = process.argv.indexOf(param, 2);
-    if (position !== -1) {
-      if (process.argv.length >= position + 2) {
-        var value = process.argv[position + 1];
-        return value;
-      } else {
-        return null;
-      }
-    }
-  }
-  return undefined;
-}
+const defaultSize = 800;
+var input = argv.multiple;
+var title = argv.title || 'placeholder';
+var width = argv.width || defaultSize;
+var height = argv.height || defaultSize;
 
 function CheckSize(size) {
   if (size <= 0 || isNaN(size) || size === null) {
@@ -26,28 +16,24 @@ function CheckSize(size) {
   return size;
 }
 
-function generateImage(width = defaultSize, height = defaultSize, title) {
+function generateImage(width, height, title) {
   imgGen.generateImage(width, height, 80, function(error, image) {
     if (error) console.log(error.stack);
-    fs.writeFileSync('src/images/' + title + '.jpg', image.data);
+    fs.writeFileSync('src/images/' + title + '_' + width + 'x' + height + '.jpg', image.data);
   });
 }
 
-var width = GetParamaterValue('width');
-var height = GetParamaterValue('height');
-var input = GetParamaterValue('multiple');
-
 if (height !== undefined) {
   height = CheckSize(parseInt(height));
-} else {
-  height = defaultSize;
 }
 
 if (width !== undefined) {
   width = CheckSize(parseInt(width));
-} else {
-  width = defaultSize;
 }
+
+if (input === true) {
+  input = 'placeholders.json';
+};
 
 if (input !== undefined) {
   if (fs.existsSync(input)) {
@@ -82,6 +68,5 @@ if (
     console.log('Input file must be a JSON file with an array of "Images"');
   }
 } else {
-  var title = 'placeholder_' + height + 'x' + width;
   generateImage(width, height, title);
 }

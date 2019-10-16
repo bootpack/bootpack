@@ -32,7 +32,8 @@
     "lint:styles": "run-s lint:css lint:scss",
     "lint:js": "eslint .",
     "compress:images": "node ./tools/compress-images.js",
-    "generate:images": "node ./tools/generate-images.js"
+    "generate:images": "node ./tools/generate-images.js",
+    "generate:images:multiple": "node ./tools/generate-images.js --multiple"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -78,6 +79,7 @@
     "webpack": "^4.41.1",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2",
-    "write-file-webpack-plugin": "^4.5.0"
+    "write-file-webpack-plugin": "^4.5.0",
+    "yargs": "^14.2.0"
   }
 }
