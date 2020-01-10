@@ -48,7 +48,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "compress-images": "^1.5.2",
     "compression-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.3",
+    "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^6.0.3",
     "css-loader": "^3.0.0",
     "eslint": "^6.7.2",
