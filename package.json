@@ -80,6 +80,6 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.8.2",
     "write-file-webpack-plugin": "^4.5.0",
-    "yargs": "^15.1.0"
+    "yargs": "^15.4.1"
   }
 }
