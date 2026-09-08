@@ -27,9 +27,10 @@ Having a domain in Cloudflare does not mean a hosting project already exists.
 3. Set `NODE_VERSION` to the Node 24 version in `.nvmrc`. Keep npm development
    dependencies enabled because webpack/Sass are build dependencies. Do not set
    `NODE_ENV=production` during dependency installation.
-4. For the official site, keep `master` as the eventual production branch and
-   `develop` as a preview branch. Do not publish the legacy `master` as v1.0.0.
-   Validate the develop preview before promoting the release to master.
+4. For the official site, keep `master` as the production branch and `develop`
+   as a preview branch. Validate the develop preview before promoting to master.
+   The official project currently builds all non-production branches as public
+   previews, including `docs/*`; a documentation-only push still deploys.
 5. Confirm the `pages.dev` preview renders every example, navigation and static
    asset. Test a direct visit to a nested page and an unknown page.
 6. Only after the tested release is ready, open **Custom domains > Set up a domain**
@@ -64,18 +65,19 @@ Use a Pages artifact workflow to publish the contents of `dist` after checks pas
 The template's included CI workflow validates but **does not deploy**. Enable Pages
 and its permissions explicitly for the repository that should be published.
 
-The separate `bootpack.github.io` organization landing repository should become a
-small directory pointing to the canonical `bootpack.io` site, current starter,
-documentation and examples. Change that page only once the destination is live;
-do not redirect users to an unconfigured domain. No Reactstrap link is needed after
-the empty legacy repository is deleted.
+The separate `bootpack.github.io` organization landing repository is a small
+directory pointing to the canonical `bootpack.io` site, current starter,
+documentation and examples. GitHub Pages publishes its `master` branch from the
+repository root. The empty Reactstrap repository was deleted on 2026-09-08.
+This repository's older project demo still uses `gh-pages`; it is not the v1 site.
 
 ## Release and rollback
 
-`develop` is the v1.0.0 integration branch. Merging/pushing it to a branch connected
-to a host can deploy publicly, so review that host's settings first. Create the
-v1.0.0 tag/release only after the [release gates](release-v1.md) pass. The version in
-package.json is the target version, not evidence that the release has been published.
+`develop` is the integration branch. Merging/pushing it to a branch connected to a
+host can deploy publicly, so review that host's settings first. v1.0.0 was released
+on 2026-09-08 after the [release gates](release-v1.md) passed. The known-good
+production deployment is `c0c04c29.bootpack.pages.dev` at 6ab479c; the tag points
+to that tested commit. A version in package.json alone is not publication evidence.
 
 Record the known-good deployment ID and commit before replacing an existing site.
 Use the host's deployment rollback if verification fails; do not use force pushes

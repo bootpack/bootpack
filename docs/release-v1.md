@@ -1,7 +1,10 @@
 # v1.0.0 release
 
-Status: release candidate on `develop`, 2026-09-08. The owner approved master
-promotion, bootpack.io launch and the v1.0.0 GitHub release after validation.
+Status: released on 2026-09-08 after owner-approved validation and launch.
+[v1.0.0](https://github.com/bootpack/bootpack/releases/tag/v1.0.0) is the latest
+stable release, tagged at `6ab479cf53e5c4dbb02c7d259d29c0adacfcdb3d`.
+[bootpack.io](https://bootpack.io) and the
+[organization directory](https://bootpack.github.io) are live.
 
 ## Scope
 
@@ -19,43 +22,57 @@ promotion, bootpack.io launch and the v1.0.0 GitHub release after validation.
 - [x] Clean generated-copy install on Node 24 (`npm ci`), without Git or existing dependencies.
 - [x] Local Windows lint, five unit tests and production build.
 - [x] Run the checked-in Windows and Linux CI workflow on GitHub (5e8d63c).
-- [ ] Confirm final release-candidate CI after hosted-fallback correction.
+- [x] Confirm final release-candidate CI after hosted-fallback correction (6ab479c).
 - [x] 24 Chromium desktop/mobile tests at root and /bootpack/ subpath.
 - [x] Verify HTML/CSS/JS reload and document page-addition restart behavior.
 - [x] Review desktop/mobile screenshots, fonts/icons and real 404 responses.
 - [x] Verify production output excludes source maps.
 - [x] Dependency audit (zero vulnerabilities) and clean-copy onboarding walkthrough.
-- [ ] Verify custom page images and custom 404 rendering on the actual Pages host.
-- [ ] Validate Pages preview, custom-domain HTTPS and preserve email DNS.
-- [ ] Update GitHub landing links once bootpack.io is live.
+- [x] Verify copied images and custom 404 rendering on the actual Pages host.
+- [x] Validate Pages preview, custom-domain HTTPS and preserve email DNS.
+- [x] Update GitHub landing links once bootpack.io is live.
 - [x] Delete empty bootpack-reactstrap repository through an authorized owner session.
-- [ ] Review master promotion, remove development-only onboarding warnings, then
+- [x] Review master promotion, remove development-only onboarding warnings, then
   tag/release v1.0.0 with migration notes and verified deployment information.
 
 ## Release handoff
 
 Validated on Windows with Node 24.15.0 and npm 11.12.1. Browser coverage is
-Chromium only; Firefox and Safari have not run. Windows and Ubuntu CI both passed
-for the foundation commit. Page discovery
-and image-tool tests include nested paths, non-destructive output and repeat runs.
-The clean-copy dev check confirmed HTML reload and CSS/JavaScript updates.
+Chromium only; Firefox and Safari have not run. Windows and Ubuntu both passed
+[final candidate CI](https://github.com/bootpack/bootpack/actions/runs/34241987688)
+at 6ab479c. Page discovery and image-tool tests include nested paths,
+non-destructive output and repeat runs. The clean-copy dev check confirmed HTML
+reload and CSS/JavaScript updates. Dependency audit reported zero vulnerabilities.
 
-Implementation and documentation were pushed to `develop` at 5e8d63c.
-The separate bootpack.github.io working copy has a tested static landing update;
-publish its canonical links only after bootpack.io is live.
+The tested history was fast-forwarded from `develop` to `master`, preserving the
+unreleased development work. The annotated v1.0.0 tag remains on that exact tested
+commit; this completed handoff is a subsequent documentation-only update. No npm
+package was published. The repository is enabled as a GitHub template.
 
-Owner-authenticated GitHub and Cloudflare browser sessions became available on
-2026-09-08. The empty Reactstrap repository is absent from the organization and its
-API returns 404, confirming deletion. GitHub Pages for this repository publishes
-only the legacy `gh-pages` branch; pushing `develop` does not replace that demo.
 Cloudflare Pages project `bootpack` uses Git integration restricted to this
 repository, framework None, `npm run build`, output `dist`, Node 24.15.0.
-The first validation deployment is `9944e49a.bootpack.pages.dev` at 5e8d63c.
-It was initialized from develop with no custom domain; restore master as the
-production branch before promotion. Hosted checks found a nested-404 asset-path
-issue; the fallback is now self-contained and covered by a local browser regression.
-The bootpack.io zone contains nine existing SES mail/verification records; preserve
-all of them. Domain activation and release publication remain separate gates.
+`master` deploys production; all other branches, including `develop` and `docs/*`,
+currently deploy public previews. Review deployment approval before branch pushes.
+The validated candidate is `960c64b3.bootpack.pages.dev`; the known-good v1
+production deployment is `c0c04c29.bootpack.pages.dev`, both at 6ab479c.
+
+Cloudflare reports bootpack.io Active with SSL enabled. All five live routes
+passed Chromium checks at 1440px and 390px, including menu/keyboard behavior,
+asset requests and overflow checks. The copied GIF matches the built output
+byte-for-byte. Unknown nested URLs return the styled, self-contained 404 without
+broken relative asset requests. Desktop/mobile screenshots were reviewed.
+
+Domain activation added only the proxied apex CNAME to `bootpack.pages.dev`.
+All nine existing SES mail/verification records were retained, giving ten records
+in total. `www` is not configured; the canonical site is the apex domain.
+
+The separate organization directory was published from `master` at 53a927e;
+[its Pages workflow](https://github.com/bootpack/bootpack.github.io/actions/runs/34242964542)
+passed, and live desktop/mobile checks confirmed the logo and current links.
+The empty Reactstrap repository is absent from the organization and its API
+returns 404, confirming deletion. No functionality was moved. This repository's
+older project demo still publishes from `gh-pages` and was not replaced; it is
+not the canonical v1 site.
 
 Do not introduce React, a generator CLI, a second bundler, or automatic CSS purging
 in this release. These need separate demand and maintenance decisions. Per-page
