@@ -4,7 +4,9 @@ Bootstrap 5 + webpack 5 for multi-page static websites. Write HTML, customize Sa
 and publish the generated `dist` folder to any static host. No React, database,
 application server, or jQuery required.
 
-**v1.0.0** is a breaking upgrade; see the [migration guide](docs/migration-v1.md).
+**v1.1.0** adds optional page-specific bundles and an expanded example catalog;
+see the [release notes](docs/release-v1.1.md). Upgrading from v0.x? Start with the
+[v1 migration guide](docs/migration-v1.md).
 Explore the official examples at [bootpack.io](https://bootpack.io).
 
 ## Start here

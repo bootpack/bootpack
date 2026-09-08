@@ -94,6 +94,10 @@ on 2026-09-08 after the [release gates](release-v1.md) passed. The known-good
 production deployment is `c0c04c29.bootpack.pages.dev` at 6ab479c; the tag points
 to that tested commit. A version in package.json alone is not publication evidence.
 
+The pre-v1.1.0 rollback baseline is `e8418aba.bootpack.pages.dev` at `e4d0f6f`,
+which includes the validated catalog and page-entry features. See
+[v1.1.0 release notes](release-v1.1.md) for release scope and validation gates.
+
 Record the known-good deployment ID and commit before replacing an existing site.
 Use the host's deployment rollback if verification fails; do not use force pushes
 or undo unrelated DNS changes. Cloudflare and GitHub control-plane permissions must

@@ -12,6 +12,7 @@ for (const route of ['', 'templates/starter/', 'templates/grid/', 'templates/jum
     await page.goto(route || './');
     await page.evaluate(() => document.fonts.ready);
     expect(messages).toContain(`Bootpack ${version}`);
+    if (!route) await expect(page.locator('[data-version]')).toHaveText(`v${version}`);
     await expect(page.locator('main')).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     const icon = await page.locator('link[rel="icon"]').getAttribute('href');

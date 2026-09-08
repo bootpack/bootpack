@@ -1,8 +1,9 @@
 # v1.0.0 release
 
 Status: released on 2026-09-08 after owner-approved validation and launch.
-[v1.0.0](https://github.com/bootpack/bootpack/releases/tag/v1.0.0) is the latest
+[v1.0.0](https://github.com/bootpack/bootpack/releases/tag/v1.0.0) is the original
 stable release, tagged at `6ab479cf53e5c4dbb02c7d259d29c0adacfcdb3d`.
+See [v1.1.0 release notes](release-v1.1.md) for the subsequent feature release.
 [bootpack.io](https://bootpack.io) and the
 [organization directory](https://bootpack.github.io) are live.
 
