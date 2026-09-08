@@ -48,7 +48,9 @@ Direct Upload deliberately at project creation. No Cloudflare account IDs, API k
 or automatic production-deploy script are shipped in this template.
 
 Cloudflare can apply SPA fallback when there is no top-level `404.html`. This
-starter includes one; keep it when adding pages. See the official
+starter includes a self-contained one without external bundles or fonts, so it
+renders at arbitrary unknown URL depths. Local preview serves the same fallback.
+Keep it when adding pages. See the official
 [static HTML guide](https://developers.cloudflare.com/pages/framework-guides/deploy-a-static-html-site/)
 and [custom-domain guide](https://developers.cloudflare.com/pages/configuration/custom-domains/).
 

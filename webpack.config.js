@@ -39,7 +39,8 @@ module.exports = (_environment, options = {}) => {
       new MiniCssExtractPlugin({ filename: production ? 'css/styles.[contenthash:8].css' : 'css/styles.css' }),
       ...discoverPages(source).map(page => new HtmlWebpackPlugin({
         ...page,
-        favicon: path.join(source, 'favicon.png'),
+        inject: page.filename !== '404.html',
+        favicon: page.filename === '404.html' ? false : path.join(source, 'favicon.png'),
         scriptLoading: 'defer',
         minify: production
       }))

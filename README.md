@@ -4,9 +4,8 @@ Bootstrap 5 + webpack 5 for multi-page static websites. Write HTML, customize Sa
 and publish the generated `dist` folder to any static host. No React, database,
 application server, or jQuery required.
 
-**v1.0.0 is in development on `develop`.** The default `master` branch and latest
-published release still contain the older starter until the release is promoted.
-This version is a breaking upgrade; see the [migration guide](docs/migration-v1.md).
+**v1.0.0** is a breaking upgrade; see the [migration guide](docs/migration-v1.md).
+Explore the official examples at [bootpack.io](https://bootpack.io).
 
 ## Start here
 
@@ -18,10 +17,10 @@ node --version
 npm --version
 ```
 
-To try the upcoming v1.0.0 now:
+To try the starter:
 
 ```sh
-git clone --branch develop https://github.com/bootpack/bootpack.git my-website
+git clone https://github.com/bootpack/bootpack.git my-website
 cd my-website
 npm ci
 npm start
@@ -31,10 +30,9 @@ Open **http://localhost:8080**. Edit `src/index.html`, save, and the browser rel
 Stop the server with **Ctrl+C**. You do not need to build before starting it.
 If port 8080 is occupied, use `npm start -- --port 8081`.
 
-To create your own repository after v1.0.0 is released, select **Use this template >
+To create your own repository, select **Use this template >
 Create a new repository** on GitHub, then clone your new repository and run the
-same `cd`, `npm ci`, and `npm start` commands. Before the release, that button's
-default-branch copy is still v0.13.0; use the development clone above for evaluation.
+same `cd`, `npm ci`, and `npm start` commands.
 Generated repositories are independent and do not automatically receive upstream updates.
 
 New to the workflow? Follow [Your first website](docs/getting-started.md) for a

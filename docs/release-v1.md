@@ -1,7 +1,7 @@
 # v1.0.0 release
 
-Status: implementation in progress on `develop`, started 2026-09-08. Version 1.0.0
-is the target; no release tag or production publication is implied by package.json.
+Status: release candidate on `develop`, 2026-09-08. The owner approved master
+promotion, bootpack.io launch and the v1.0.0 GitHub release after validation.
 
 ## Scope
 
@@ -18,7 +18,8 @@ is the target; no release tag or production publication is implied by package.js
 
 - [x] Clean generated-copy install on Node 24 (`npm ci`), without Git or existing dependencies.
 - [x] Local Windows lint, five unit tests and production build.
-- [ ] Run the checked-in Windows and Linux CI workflow on GitHub.
+- [x] Run the checked-in Windows and Linux CI workflow on GitHub (5e8d63c).
+- [ ] Confirm final release-candidate CI after hosted-fallback correction.
 - [x] 24 Chromium desktop/mobile tests at root and /bootpack/ subpath.
 - [x] Verify HTML/CSS/JS reload and document page-addition restart behavior.
 - [x] Review desktop/mobile screenshots, fonts/icons and real 404 responses.
@@ -31,26 +32,30 @@ is the target; no release tag or production publication is implied by package.js
 - [ ] Review master promotion, remove development-only onboarding warnings, then
   tag/release v1.0.0 with migration notes and verified deployment information.
 
-## Local handoff
+## Release handoff
 
 Validated on Windows with Node 24.15.0 and npm 11.12.1. Browser coverage is
-Chromium only; Firefox, Safari and actual Linux CI have not run. Page discovery
+Chromium only; Firefox and Safari have not run. Windows and Ubuntu CI both passed
+for the foundation commit. Page discovery
 and image-tool tests include nested paths, non-destructive output and repeat runs.
 The clean-copy dev check confirmed HTML reload and CSS/JavaScript updates.
 
-Implementation and documentation are prepared for publication on `develop`.
+Implementation and documentation were pushed to `develop` at 5e8d63c.
 The separate bootpack.github.io working copy has a tested static landing update;
-its new guide link must not be published before this repository's guides are
-available remotely. Neither website has been published by this work.
+publish its canonical links only after bootpack.io is live.
 
 Owner-authenticated GitHub and Cloudflare browser sessions became available on
 2026-09-08. The empty Reactstrap repository is absent from the organization and its
 API returns 404, confirming deletion. GitHub Pages for this repository publishes
 only the legacy `gh-pages` branch; pushing `develop` does not replace that demo.
-Cloudflare confirms no Workers/Pages projects exist yet. Set up Pages using
-[Deployment](deployment.md), preserving existing mail records. Do not put login
-tokens in Git, documentation or chat. Domain activation and release publication
-remain separate gates.
+Cloudflare Pages project `bootpack` uses Git integration restricted to this
+repository, framework None, `npm run build`, output `dist`, Node 24.15.0.
+The first validation deployment is `9944e49a.bootpack.pages.dev` at 5e8d63c.
+It was initialized from develop with no custom domain; restore master as the
+production branch before promotion. Hosted checks found a nested-404 asset-path
+issue; the fallback is now self-contained and covered by a local browser regression.
+The bootpack.io zone contains nine existing SES mail/verification records; preserve
+all of them. Domain activation and release publication remain separate gates.
 
 Do not introduce React, a generator CLI, a second bundler, or automatic CSS purging
 in this release. These need separate demand and maintenance decisions. Per-page

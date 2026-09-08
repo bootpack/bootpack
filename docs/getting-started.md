@@ -13,17 +13,17 @@ your machine's security policy is not required.
 
 ## 2. Get a working copy
 
-While v1.0.0 is unreleased, clone the development branch:
+To evaluate the starter, clone the released default branch:
 
 ```sh
-git clone --branch develop https://github.com/bootpack/bootpack.git my-website
+git clone https://github.com/bootpack/bootpack.git my-website
 cd my-website
 npm ci
 npm start
 ```
 
-After v1.0.0 reaches the default branch, GitHub's **Use this template** button is
-the preferred way to start your own repository. Clone the repository you created,
+GitHub's **Use this template** button is the preferred way to start your own
+repository. Clone the repository you created,
 not Bootpack, and run `npm ci` from the folder containing `package.json`.
 
 In your own project, update package metadata, the README, and example links to

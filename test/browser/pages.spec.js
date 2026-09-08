@@ -32,6 +32,14 @@ for (const route of ['', 'templates/starter/', 'templates/grid/', 'templates/jum
   });
 }
 
-test('missing pages return a real 404', async ({ request }) => {
-  expect((await request.get('not-a-page/')).status()).toBe(404);
+test('missing pages render a styled self-contained 404 at any depth', async ({ page }) => {
+  const failures = [];
+  page.on('requestfailed', request => failures.push(request.url()));
+  page.on('pageerror', error => failures.push(error.message));
+  const response = await page.goto('missing/deep/page/');
+  expect(response.status()).toBe(404);
+  await expect(page.getByRole('heading', { name: 'Page not found' })).toBeVisible();
+  await expect(page.locator('script[src], link[href]')).toHaveCount(0);
+  expect(await page.locator('body').evaluate(element => getComputedStyle(element).fontFamily)).toContain('Trebuchet MS');
+  expect(failures).toEqual([]);
 });
