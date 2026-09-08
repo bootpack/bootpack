@@ -1,7 +1,8 @@
 # Examples
 
-The gallery contains eight standalone HTML layouts. All use the same selected
-Bootstrap 5 styles and JavaScript entry; there is no React or server requirement.
+The gallery contains eight standalone HTML layouts. All use a shared Bootstrap 5
+foundation; Album and Elements add their own [page entries](page-entries.md).
+There is no React or server requirement.
 
 | Example | Layout and interactions |
 |---|---|
@@ -12,12 +13,14 @@ Bootstrap 5 styles and JavaScript entry; there is no React or server requirement
 | Album | Responsive photo cards and a native dialog with Escape/focus restoration |
 | Pricing | Monthly/annual totals, native disclosure questions and plan links |
 | Contact | Responsive labeled fields, native validation, local preview and reset |
-| Elements | Typography, alerts, collapse, inputs, switches and border/color utilities |
+| Elements | Content, every Bootstrap 5 component family, forms, utilities and helpers |
 
 New layouts live under `src/templates/`. Open them from the homepage; all pages
 link back to the gallery. `src/js/examples.js` contains the small interactions,
-and `src/css/examples.css` contains the photo/dialog styles. Remove those two
-imports from `src/js/index.js` if your site does not use the examples.
+and `src/css/examples.css` contains the Album-only photo/dialog styles. Elements
+has its own `src/js/elements.js` and `src/scss/elements.scss`. Remove unused mappings
+from `page-entries.js` when deleting examples; remove the shared `./examples` import
+from `src/js/index.js` when dropping the Album/Pricing/Contact interactions.
 
 ## Sample data and privacy
 
@@ -30,10 +33,28 @@ deliberately have no `name` attributes, and submission is enabled only after the
 local handler is installed. Connect a real endpoint, handle error/success states,
 and define your privacy policy before turning it into a real contact form.
 
-The Elements page covers Bootpack's selected components, not every Bootstrap
-plugin. For additional components, follow the import and keyboard-test guidance
-in [Getting started](getting-started.md) and the current
-[Bootstrap documentation](https://getbootstrap.com/docs/5.3/).
+The Elements form also previews locally without sending or storing entered values.
+Its submit button stays disabled until the local handler is installed. The carousel
+does not autoplay; toast notifications remain until dismissed. Overlays support
+Escape and restore trigger focus; tabs support arrow-key navigation.
+
+## Elements coverage
+
+The catalog organizes representative Bootstrap 5.3 examples by family, not every
+possible color, breakpoint or component permutation. The official
+[Bootstrap reference](https://getbootstrap.com/docs/5.3/) remains the API reference.
+
+| Area | Included families |
+|---|---|
+| Content | Reboot defaults, typography, code/lists, responsive images, figures and tables |
+| Components | Accordion, alerts, badges, breadcrumb, buttons, button group, card, carousel, close button, collapse, dropdown, list group, modal, navbar, nav/tabs, offcanvas, pagination, placeholders, popovers, progress, scrollspy, spinners, toasts and tooltips |
+| Forms | Text/email/file/color controls, textarea, select, checkboxes/radios, switches, range, input groups, floating labels, responsive layout, readonly/disabled states and validation |
+| Utilities | Background, borders, colors, display, flex, float, interactions, links, object fit, opacity, overflow, position, shadows, sizing, spacing, text, vertical alignment, visibility and z-index |
+| Helpers | Clearfix, colored links, focus ring, ratio, stacks, stretched link, text truncation, visually hidden labels and vertical rule |
+
+Navbar and dropdown examples are in the catalog's top navigation. Pagination
+switches between two local table pages. The extra component styles and plugins
+load only on Elements, so a plain starter page does not pay for this catalog.
 
 ## Images
 

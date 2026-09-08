@@ -4,17 +4,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const autoprefixer = require('autoprefixer');
-const { discoverPages } = require('./tools/pages');
+const { discoverPages, createPageBundles } = require('./tools/pages');
+const pageEntries = require('./page-entries');
 const { version } = require('./package.json');
 
 module.exports = (_environment, options = {}) => {
   const production = options.mode === 'production';
   const source = path.join(__dirname, 'src');
+  const bundles = createPageBundles(discoverPages(source), pageEntries);
   return {
     name: `bootpack-${version}`,
     mode: production ? 'production' : 'development',
     context: __dirname,
-    entry: { index: './src/js/index.js' },
+    entry: { index: './src/js/index.js', ...bundles.entry },
     output: {
       path: path.join(__dirname, 'dist'),
       filename: production ? 'js/[name].[contenthash:8].js' : 'js/[name].js',
@@ -38,8 +40,11 @@ module.exports = (_environment, options = {}) => {
         { from: 'src/images', to: 'images', noErrorOnMissing: true },
         { from: 'src/fonts', to: 'fonts', noErrorOnMissing: true }
       ] }),
-      new MiniCssExtractPlugin({ filename: production ? 'css/styles.[contenthash:8].css' : 'css/styles.css' }),
-      ...discoverPages(source).map(page => new HtmlWebpackPlugin({
+      new MiniCssExtractPlugin({ filename: pathData => {
+        const name = pathData.chunk.name === 'index' ? 'styles' : '[name]';
+        return production ? `css/${name}.[contenthash:8].css` : `css/${name}.css`;
+      } }),
+      ...bundles.pages.map(page => new HtmlWebpackPlugin({
         ...page,
         inject: page.filename !== '404.html',
         favicon: page.filename === '404.html' ? false : path.join(source, 'favicon.png'),

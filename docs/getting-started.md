@@ -69,6 +69,11 @@ webpack injects the shared CSS, JavaScript and favicon into each generated page.
 Do not manually add a second Bootstrap CDN stylesheet or script. This can cause
 duplicate styles and double-handled interactions.
 
+For styles or scripts needed by only one page, use the optional `page-entries.js`
+mapping. Follow [Page-specific CSS and JavaScript](page-entries.md) for a complete
+CSS-only example. Restart the server after editing that mapping, and remove its
+entry when deleting a mapped page.
+
 ## 5. Change the theme
 
 Edit `src/scss/variables.scss`, which loads before Bootstrap's default variables:
@@ -85,12 +90,13 @@ For new rules, use `src/scss/custom.scss` or `src/css/custom.css`.
 Bootstrap's [Sass guide](https://getbootstrap.com/docs/5.3/customize/sass/) explains
 map overrides and import order. Do not edit files inside `node_modules`.
 
-The starter includes navigation, collapse, dropdown, forms, cards, alerts and core
-layout styles. To add a modal, for example, import `bootstrap/scss/modal` before
-the helpers/utilities API in `src/scss/bootstrap.scss`, and import
-`bootstrap/js/dist/modal` in `src/js/index.js`. Add both the component's markup
-and keyboard tests. You can instead import all Bootstrap styles/JS if bundle size
-is not important for your project.
+The shared starter includes navigation, collapse, dropdown, forms, cards, alerts
+and core layout styles. The Elements catalog adds the other Bootstrap component
+families in its page entry. Follow `src/js/elements.js` and `src/scss/elements.scss`
+when adding a modal or other plugin only to a particular page. Add both its Sass
+and JavaScript imports, matching markup and keyboard tests. Move imports into the
+shared entry only when all pages need them. You can instead import all Bootstrap
+styles/JS if bundle size is not important for your project.
 
 Bootstrap 5 uses `data-bs-toggle` and `data-bs-target`. Do not use Bootstrap 4's
 `data-toggle` or add jQuery. Bootstrap 5.3 still uses Sass `@import`; the build

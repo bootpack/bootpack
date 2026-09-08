@@ -47,7 +47,8 @@ complete walkthrough, Windows notes, customization, and troubleshooting.
 | `npm run preview` | Serve the last production build at http://localhost:4173 |
 | `npm run build:dev` | One development build written to `dist`, with source maps |
 | `npm run watch` | Rebuild `dist` on changes without starting a server |
-| `npm test` | Page discovery and non-destructive image-tool tests |
+| `npm test` | Page discovery, bundle mapping/watch rebuilds and non-destructive image-tool tests |
+| `npm run report:css` | Raw, gzip and Brotli sizes of the last build's stylesheets |
 | `npm run lint` | Check JavaScript, CSS and Sass |
 | `npm run check` | Lint, unit tests and production build |
 | `npm run test:browser` | Chromium tests of the already-built `dist` folder |
@@ -78,6 +79,7 @@ src/
   fonts/                     Local fonts
   favicon.png                Site icon, linked correctly from nested pages
 tools/                       Build discovery, local preview and image helpers
+page-entries.js               Optional page-specific CSS/Sass/JavaScript entries
 test/                        Unit and browser checks
 dist/                        Generated output; never edit by hand
 ```
@@ -93,6 +95,7 @@ Existing HTML/CSS/JS edits rebuild while the server is running.
 - [First website and theming](docs/getting-started.md)
 - [Image tools and asset paths](docs/assets.md)
 - [Layouts, elements and sample interactions](docs/examples.md)
+- [Page-specific CSS and JavaScript](docs/page-entries.md)
 - [Cloudflare Pages and other static hosts](docs/deployment.md)
 - [Migrating from v0.13.0](docs/migration-v1.md)
 - [v1.0.0 release checklist](docs/release-v1.md)

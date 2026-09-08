@@ -8,10 +8,15 @@ HTML image URLs are relative to the page. From `src/index.html` use
 `./images/photo.jpg`; from `src/about/index.html` use `../images/photo.jpg`.
 Avoid leading `/` URLs when supporting a project subdirectory such as `/bootpack/`.
 
-CSS URLs are deliberately left unchanged by css-loader. All compiled CSS lives in
-`dist/css`, so use `../images/photo.jpg` and `../fonts/...` in stylesheets, regardless
-of which source stylesheet contains the rule. The starter uses local Open Sans
-fonts and does not need a font-service network connection.
+CSS URLs are deliberately left unchanged by css-loader. Shared CSS is emitted
+directly in `dist/css`, so use `../images/photo.jpg` and `../fonts/...` in shared
+styles. [Page-specific styles](page-entries.md) have nested output paths: the
+About stylesheet is `dist/css/pages/about/index.<hash>.css`, so its image URL
+would be `../../../images/photo.jpg`. An entry for `templates/elements/index.html`
+is one level deeper and would use `../../../../images/photo.jpg`. Resolve CSS URLs
+from the emitted stylesheet, not from the source file or HTML page. These relative
+paths also work under `/bootpack/`. The starter's shared local Open Sans declarations
+remain unchanged and do not need a font-service network connection.
 
 The default favicon is a PNG, not the old generated multi-platform icon package.
 Add app manifests/touch icons explicitly when your site needs them. Retain their

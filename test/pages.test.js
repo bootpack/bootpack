@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { test } = require('node:test');
-const { discoverPages } = require('../tools/pages');
+const { discoverPages, createPageBundles } = require('../tools/pages');
 
 function fixture(context) {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'bootpack-pages-'));
@@ -33,4 +33,41 @@ test('handles a root-only page without waiting on subdirectories', context => {
 
 test('empty directories have no pages', context => {
   assert.deepEqual(discoverPages(fixture(context)), []);
+});
+
+test('page bundles preserve shared defaults and keep the 404 self-contained', () => {
+  const pages = [{ filename: 'index.html' }, { filename: '404.html' }];
+  const bundles = createPageBundles(pages);
+  assert.deepEqual(bundles.entry, {});
+  assert.deepEqual(bundles.pages.map(page => page.chunks), [['index'], []]);
+  assert.equal(pages[0].chunks, undefined);
+});
+
+test('page bundles inject only assigned entries after the shared entry', () => {
+  const pages = ['index.html', 'guides/about.team.html', 'guides/help.htm'].map(filename => ({ filename }));
+  const bundles = createPageBundles(pages, {
+    'guides/about.team.html': './src/css/about.css',
+    'guides/help.htm': './src/js/help.js'
+  });
+  assert.deepEqual(bundles.entry, {
+    'pages/guides/about.team': { import: './src/css/about.css', dependOn: 'index' },
+    'pages/guides/help': { import: './src/js/help.js', dependOn: 'index' }
+  });
+  assert.deepEqual(bundles.pages.map(page => page.chunks), [
+    ['index'], ['index', 'pages/guides/about.team'], ['index', 'pages/guides/help']
+  ]);
+  assert.ok(bundles.pages.every(page => page.chunksSortMode === 'manual'));
+});
+
+test('page bundles reject stale mappings, invalid entries and ambiguous chunk names', () => {
+  const pages = ['index.html', '404.html', 'help.html', 'help.htm'].map(filename => ({ filename }));
+  for (const filename of ['missing.html', '404.html']) {
+    assert.throws(() => createPageBundles(pages, { [filename]: './src/css/page.css' }), /existing non-404 page/);
+  }
+  for (const source of ['', null, []]) {
+    assert.throws(() => createPageBundles(pages, { 'index.html': source }), /path/);
+  }
+  assert.throws(() => createPageBundles(pages, {
+    'help.html': './src/css/first.css', 'help.htm': './src/css/second.css'
+  }), /collision/);
 });

@@ -27,6 +27,7 @@
     "preview": "node tools/preview.js",
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
+    "report:css": "node tools/css-report.js",
     "watch": "webpack --mode development --watch",
     "test": "node --test test/*.test.js",
     "test:browser": "playwright test",

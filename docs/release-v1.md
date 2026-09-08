@@ -76,12 +76,21 @@ not the canonical v1 site.
 
 Do not introduce React, a generator CLI, a second bundler, or automatic CSS purging
 in this release. These need separate demand and maintenance decisions. Per-page
-entries/shared partials remain future enhancements; all pages share one entry today.
+entries/shared partials were future enhancements at the tagged release; all pages
+shared one entry in that snapshot.
 
 ## Post-release maintenance
 
 On 2026-09-08 the owner authorized additional layouts, issue triage, manual
 dependency maintenance and migration of the default/production branch to `main`.
 The original release tag and evidence above remain unchanged. Current development
-includes eight examples and 56 Chromium checks. See [Examples](examples.md) and
-the [legacy issue review](issue-review-2026-09.md) for scope and remaining work.
+initially included eight examples and 56 Chromium checks.
+
+The owner then approved completing the Elements catalog, per-page CSS entries and
+the final CSS review, with deployment after validation. Local validation passed
+nine unit/watch tests and 80 Chromium cases across desktop/mobile and root/subpath
+hosting. Dependency audit found zero vulnerabilities and no outdated npm packages.
+Elements now covers every Bootstrap 5 component family; Album and Elements assets
+are isolated through the optional page-entry mapping. Automatic CSS pruning is
+not planned after the measured review. See [Examples](examples.md),
+[page entries](page-entries.md) and the [issue review](issue-review-2026-09.md).
