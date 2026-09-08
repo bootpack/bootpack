@@ -59,6 +59,11 @@ typings/
 
 # Webpack output directory
 dist/
+playwright-report/
+test-results/
+.wrangler/
+.dev.vars
+optimized-images/
 
 # Original images directory created by `npm run compress:images`
 images-original/

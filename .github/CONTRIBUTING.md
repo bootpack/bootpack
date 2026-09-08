@@ -7,14 +7,14 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Pull Request Process
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a
-   build.
-2. Update the README.md with details of changes to the interface, this includes new environment 
-   variables, exposed ports, useful file locations and container parameters.
-3. Increase the version numbers in any examples files and the README.md to the new version that this
-   Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
-4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you
-   do not have permission to do that, you may request the second reviewer to merge it for you.
+1. Target `develop` for v1.0.0 work. Use Node 24 LTS and `npm ci` from the repository root.
+2. Run `npm run check`, then `npx playwright install chromium` and `npm run test:browser`.
+   Add regression tests for changed behavior, including nested output and mobile interactions.
+3. Update the README and relevant guides whenever commands, paths, supported browsers or
+   customization behavior change. Keep dependencies and their lockfile together.
+4. Do not commit generated `dist`, browser traces, credentials or dependencies. Ask a maintainer
+   to review the pull request; version bumps, tags, default-branch promotion and deployment are
+   release-maintainer actions, not requirements for every contribution.
 
 ## Code of Conduct
 

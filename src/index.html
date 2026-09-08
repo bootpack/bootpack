@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="Bootpack: a Bootstrap 5 and webpack starter for multi-page static websites.">
     <meta name="author" content="">
     <title>bootpack</title>
     <style>
       body {
-        padding-top: 56px;
+        padding-top: 0;
       }
     </style>
     <!-- Favicons output here on build -->
@@ -16,18 +16,21 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md sticky-top bg-dark" data-bs-theme="dark">
       <div class="container">
         <a class="navbar-brand" href="./index.html"><span aria-label="bootpack homepage"><span style="color:#7044a6;">b</span><span style="color:#1c78c0;">p</span></span></a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/bootpack/bootpack/blob/develop/docs/getting-started.md">Getting started</a>
+            </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Templates</a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Templates</a>
               <div class="dropdown-menu" aria-labelledby="dropdown01">
                 <a class="dropdown-item" href="./templates/starter/index.html">Starter</a>
                 <a class="dropdown-item" href="./templates/grid/index.html">Grid</a>
@@ -41,38 +44,33 @@
     </nav>
 
     <main role="main">
-      <div class="jumbotron">
+      <div class="bg-body-tertiary py-5 mb-4">
         <div class="container">
           <h1 class="display-3">bootpack</h1>
-          <p class="lead">bootpack is a boilerplate template to create multi-page websites quickly and easily using bootstrap for development and webpack for task running.</p>
-          <p><a class="btn btn-primary btn-lg" href="https://github.com/bootpack/bootpack" role="button" target="_blank">Learn more »</a></p>
+          <p class="lead">Bootstrap 5 + webpack. HTML, Sass and JavaScript.</p>
+          <p>v1.0.0 in development</p>
+          <p><a href="https://github.com/bootpack/bootpack">Source code</a></p>
         </div>
       </div>
 
       <div class="container">
-        <div class="row">
-          <div class="col-xl-12">
-            <p>View the bootstrap templates below to use for your project. These files are located in the <code>./src/templates</code> directory.</p>
-          </div>
-          <div class="col-md-4">
+        <h2 class="h4 mb-4">Examples</h2>
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-3">
             <h2>Starter</h2>
-            <p>Nothing but the basics: compiled CSS and JavaScript.</p>
-            <p><a class="btn btn-secondary" href="./templates/starter/index.html" role="button">View details »</a></p>
+            <p><a href="./templates/starter/index.html">Open starter</a></p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6 col-xl-3">
             <h2>Grid</h2>
-            <p>Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
-            <p><a class="btn btn-secondary" href="./templates/grid/index.html" role="button">View details »</a></p>
+            <p><a href="./templates/grid/index.html">Open grid</a></p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6 col-xl-3">
             <h2>Jumbotron</h2>
-            <p>Build around the jumbotron with a navbar and some basic grid columns.</p>
-            <p><a class="btn btn-secondary" href="./templates/jumbotron/index.html" role="button">View details »</a></p>
+            <p><a href="./templates/jumbotron/index.html">Open callout</a></p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6 col-xl-3">
             <h2>Navbar</h2>
-            <p>A navigation bar is a navigation header that is placed at the top of the page</p>
-            <p><a class="btn btn-secondary" href="./templates/navbar/index.html" role="button">View details »</a></p>
+            <p><a href="./templates/navbar/index.html">Open navbar</a></p>
           </div>
         </div>
         <hr>
@@ -80,7 +78,7 @@
     </main>
 
     <footer class="container">
-      <p></p>
+      <p><a href="https://github.com/bootpack/bootpack/blob/develop/LICENSE">MIT licensed</a></p>
     </footer>
 
     <!-- JS files output here on build -->
