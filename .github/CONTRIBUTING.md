@@ -7,7 +7,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Pull Request Process
 
-1. Target `develop` for v1.0.0 work. Use Node 24 LTS and `npm ci` from the repository root.
+1. Target `develop`; `main` is the default and production branch. Use Node 24 LTS and `npm ci` from the repository root.
 2. Run `npm run check`, then `npx playwright install chromium` and `npm run test:browser`.
    Add regression tests for changed behavior, including nested output and mobile interactions.
 3. Update the README and relevant guides whenever commands, paths, supported browsers or

@@ -1,13 +1,17 @@
 const { test, expect } = require('@playwright/test');
+const { version } = require('../../package.json');
 
-for (const route of ['', 'templates/starter/', 'templates/grid/', 'templates/jumbotron/', 'templates/navbar/']) {
+for (const route of ['', 'templates/starter/', 'templates/grid/', 'templates/jumbotron/', 'templates/navbar/', 'templates/album/', 'templates/pricing/', 'templates/contact/', 'templates/elements/']) {
   test(`loads ${route || 'homepage'} with working assets and navigation`, async ({ page, request }, testInfo) => {
     const failures = [];
+    const messages = [];
+    page.on('console', message => messages.push(message.text()));
     page.on('pageerror', error => failures.push(error.message));
     page.on('requestfailed', request => failures.push(request.url()));
     page.on('response', response => { if (response.status() >= 400) failures.push(`${response.status()}: ${response.url()}`); });
     await page.goto(route || './');
     await page.evaluate(() => document.fonts.ready);
+    expect(messages).toContain(`Bootpack ${version}`);
     await expect(page.locator('main')).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     const icon = await page.locator('link[rel="icon"]').getAttribute('href');

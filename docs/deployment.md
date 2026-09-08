@@ -27,8 +27,8 @@ Having a domain in Cloudflare does not mean a hosting project already exists.
 3. Set `NODE_VERSION` to the Node 24 version in `.nvmrc`. Keep npm development
    dependencies enabled because webpack/Sass are build dependencies. Do not set
    `NODE_ENV=production` during dependency installation.
-4. For the official site, keep `master` as the production branch and `develop`
-   as a preview branch. Validate the develop preview before promoting to master.
+4. For the official site, keep `main` as the production branch and `develop`
+   as a preview branch. Validate the develop preview before promoting to main.
    The official project currently builds all non-production branches as public
    previews, including `docs/*`; a documentation-only push still deploys.
 5. Confirm the `pages.dev` preview renders every example, navigation and static
@@ -72,6 +72,21 @@ repository root. The empty Reactstrap repository was deleted on 2026-09-08.
 This repository's older project demo still uses `gh-pages`; it is not the v1 site.
 
 ## Release and rollback
+
+The Bootpack default branch was renamed from `master` to `main` on 2026-09-08,
+and Cloudflare's production branch was updated with it. The old branch was removed;
+no commits or tags were rewritten. To update an older clean local clone:
+
+```sh
+git fetch --prune origin
+git branch -m master main
+git branch --set-upstream-to=origin/main main
+git remote set-head origin -a
+```
+
+Run the rename only if your local branch is still named `master`. Preserve local
+work and resolve any existing `main` branch before renaming. The separate
+organization landing repository retains its own `master` branch.
 
 `develop` is the integration branch. Merging/pushing it to a branch connected to a
 host can deploy publicly, so review that host's settings first. v1.0.0 was released

@@ -1,0 +1,37 @@
+.album-image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.album-image-button:focus-visible {
+  outline: 3px solid var(--bs-primary);
+  outline-offset: 3px;
+}
+
+.album-image {
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.album-dialog {
+  width: min(960px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  padding: 20px;
+  border: 0;
+  border-radius: 6px;
+}
+
+.album-dialog::backdrop {
+  background: rgb(0 0 0 / 65%);
+}
+
+.album-dialog img {
+  display: block;
+  max-height: 75vh;
+  margin: auto;
+  object-fit: contain;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A Bootstrap pricing comparison with monthly and annual billing.">
+    <title>Plans | Bootpack pricing</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html">bootpack</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pricing-nav" aria-controls="pricing-nav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="pricing-nav">
+          <div class="navbar-nav ms-auto"><div class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Examples</button>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a class="dropdown-item" href="../../index.html">All examples</a>
+              <a class="dropdown-item" href="../album/index.html">Album</a>
+              <a class="dropdown-item" href="../contact/index.html">Contact</a>
+              <a class="dropdown-item" href="../elements/index.html">Elements</a>
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </nav>
+    <main class="container py-5">
+      <header class="text-center mb-4"><h1>Room for your next project</h1><p class="lead">A workspace for independent people and growing teams.</p></header>
+      <fieldset class="d-flex flex-wrap justify-content-center gap-3 mb-5" data-billing>
+        <legend class="visually-hidden">Billing frequency</legend>
+        <div class="form-check"><input class="form-check-input" type="radio" name="billing" value="monthly" id="monthly" checked><label class="form-check-label" for="monthly">Monthly</label></div>
+        <div class="form-check"><input class="form-check-input" type="radio" name="billing" value="annual" id="annual"><label class="form-check-label" for="annual">Annual</label></div>
+      </fieldset>
+      <div class="row g-4" aria-live="polite" aria-atomic="true">
+        <div class="col-md-4"><article class="card h-100"><div class="card-body d-flex flex-column">
+          <h2 class="h4">Personal</h2><p><strong class="fs-2" data-price data-monthly="0" data-annual="0">$0</strong> <span data-period>/ month</span></p>
+          <ul class="ps-3 mb-4"><li>One workspace</li><li>Three projects</li><li>Community support</li></ul>
+          <a href="../contact/index.html?plan=Personal" class="btn btn-outline-primary mt-auto">Choose Personal</a>
+        </div></article></div>
+        <div class="col-md-4"><article class="card h-100 border-primary"><div class="card-body d-flex flex-column">
+          <h2 class="h4">Studio</h2><p><strong class="fs-2" data-price data-monthly="18" data-annual="180">$18</strong> <span data-period>/ month</span></p>
+          <ul class="ps-3 mb-4"><li>Five workspaces</li><li>Unlimited projects</li><li>Email support</li></ul>
+          <a href="../contact/index.html?plan=Studio" class="btn btn-primary mt-auto">Choose Studio</a>
+        </div></article></div>
+        <div class="col-md-4"><article class="card h-100"><div class="card-body d-flex flex-column">
+          <h2 class="h4">Team</h2><p><strong class="fs-2" data-price data-monthly="42" data-annual="420">$42</strong> <span data-period>/ month</span></p>
+          <ul class="ps-3 mb-4"><li>Unlimited workspaces</li><li>Shared project library</li><li>Priority support</li></ul>
+          <a href="../contact/index.html?plan=Team" class="btn btn-outline-primary mt-auto">Choose Team</a>
+        </div></article></div>
+      </div>
+      <section class="py-5"><h2 class="h4">Common questions</h2>
+        <details class="border-bottom py-3"><summary>Can I change plans later?</summary><p class="mt-3 mb-0">You can change plans at the end of each billing period.</p></details>
+        <details class="border-bottom py-3"><summary>What happens to my projects?</summary><p class="mt-3 mb-0">Your projects stay in your workspace when your plan changes.</p></details>
+      </section>
+    </main>
+    <footer class="container py-4 border-top"><a href="../../index.html">Back to all examples</a></footer>
+  </body>
+</html>

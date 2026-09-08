@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A responsive Bootstrap photo album layout.">
+    <title>Field Notes | Bootpack album</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html">bootpack</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#album-nav" aria-controls="album-nav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="album-nav">
+          <div class="navbar-nav ms-auto"><div class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Examples</button>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a class="dropdown-item" href="../../index.html">All examples</a>
+              <a class="dropdown-item" href="../pricing/index.html">Pricing</a>
+              <a class="dropdown-item" href="../contact/index.html">Contact</a>
+              <a class="dropdown-item" href="../elements/index.html">Elements</a>
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </nav>
+    <main class="container py-5">
+      <header class="mb-5 border-bottom pb-4">
+        <p class="text-primary text-uppercase">A collection of places</p>
+        <h1>Field Notes</h1>
+        <p class="lead mb-0">Outside, for a while.</p>
+      </header>
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4">
+          <article class="card h-100">
+            <button class="album-image-button" type="button" data-album-image aria-label="View Alpine water">
+              <img src="../../images/examples/alpine.jpg" class="card-img-top album-image" width="960" height="640" alt="Turquoise lake below a forest and mountain peaks">
+            </button>
+            <div class="card-body"><h2 class="h4">Alpine water</h2><p class="mb-0 text-body-secondary">Still water, evergreen shores.</p></div>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-4">
+          <article class="card h-100">
+            <button class="album-image-button" type="button" data-album-image aria-label="View Open country">
+              <img src="../../images/examples/country.jpg" class="card-img-top album-image" width="960" height="640" alt="A lakeside cabin beneath forested mountain slopes">
+            </button>
+            <div class="card-body"><h2 class="h4">Open country</h2><p class="mb-0 text-body-secondary">Room to take the long way home.</p></div>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-4">
+          <article class="card h-100">
+            <button class="album-image-button" type="button" data-album-image aria-label="View Mountain light">
+              <img src="../../images/examples/mountain.jpg" class="card-img-top album-image" width="960" height="640" alt="Mountain ridges under soft evening light">
+            </button>
+            <div class="card-body"><h2 class="h4">Mountain light</h2><p class="mb-0 text-body-secondary">One last look before dusk.</p></div>
+          </article>
+        </div>
+      </div>
+      <dialog class="album-dialog" aria-label="Photograph" data-album-dialog>
+        <form method="dialog" class="d-flex justify-content-end mb-3"><button class="btn btn-outline-secondary" autofocus>Close</button></form>
+        <img alt="" class="img-fluid" data-album-full>
+      </dialog>
+    </main>
+    <footer class="container py-4 border-top"><a href="../../index.html">Back to all examples</a></footer>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An accessible Bootstrap contact form with local validation.">
+    <title>Contact | Bootpack form</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html">bootpack</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#contact-nav" aria-controls="contact-nav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="contact-nav">
+          <div class="navbar-nav ms-auto"><div class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Examples</button>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a class="dropdown-item" href="../../index.html">All examples</a>
+              <a class="dropdown-item" href="../album/index.html">Album</a>
+              <a class="dropdown-item" href="../pricing/index.html">Pricing</a>
+              <a class="dropdown-item" href="../elements/index.html">Elements</a>
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </nav>
+    <main class="container py-5">
+      <div class="row gx-4 gy-5">
+        <header class="col-lg-4"><p class="text-primary text-uppercase">Contact</p><h1>Let's talk.</h1><p class="lead">A question, a project, or a fresh perspective.</p><p class="text-body-secondary">Sample contact form</p></header>
+        <div class="col-lg-8">
+          <form data-contact-form>
+            <div class="row g-4">
+              <div class="col-md-6"><label class="form-label" for="contact-name">Name</label><input class="form-control" id="contact-name" autocomplete="name" required maxlength="100"></div>
+              <div class="col-md-6"><label class="form-label" for="contact-email">Email</label><input class="form-control" type="email" id="contact-email" autocomplete="email" required maxlength="254"></div>
+              <div class="col-12"><label class="form-label" for="contact-plan">Plan</label><select class="form-select" id="contact-plan"><option value="">General inquiry</option>Personal</option><option>Studio</option><option>Team</option></select></div>
+              <div class="col-12"><label class="form-label" for="contact-message">Message</label><textarea class="form-control" id="contact-message" rows="6" required maxlength="2000"></textarea></div>
+              <div class="col-12"><button class="btn btn-primary" type="submit" disabled data-contact-submit>Preview message</button><button class="btn btn-outline-secondary ms-2" type="reset">Reset</button></div>
+            </div>
+            <p class="mt-4 mb-0" role="status" data-contact-status></p>
+            <noscript><p>JavaScript is required for this local form preview.</p></noscript>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer class="container py-4 border-top"><a href="../../index.html">Back to all examples</a></footer>
+  </body>
+</html>

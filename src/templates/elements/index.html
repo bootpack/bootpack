@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A Bootstrap typography, components and utilities gallery.">
+    <title>Elements | Bootpack</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html">bootpack</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#elements-nav" aria-controls="elements-nav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="elements-nav">
+          <div class="navbar-nav ms-auto"><div class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Examples</button>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a class="dropdown-item" href="../../index.html">All examples</a>
+              <a class="dropdown-item" href="../album/index.html">Album</a>
+              <a class="dropdown-item" href="../pricing/index.html">Pricing</a>
+              <a class="dropdown-item" href="../contact/index.html">Contact</a>
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </nav>
+    <main class="container py-5">
+      <h1 class="mb-4">Elements</h1>
+      <nav class="nav gap-3 border-bottom pb-4" aria-label="Element sections"><a href="#type">Typography</a><a href="#components">Components</a><a href="#utilities">Utilities</a></nav>
+      <section id="type" class="py-5 border-bottom">
+        <h2>Typography</h2><div class="row g-4 mt-1"><div class="col-md-6"><h3>A clear point of view</h3><p class="lead">Good work starts with a little space to think.</p><p>Ordinary text, <strong>something important</strong>, and <em>a different emphasis</em>.</p></div><div class="col-md-6"><blockquote class="blockquote"><p>Make room for the work that matters.</p></blockquote><p class="text-body-secondary">A note from the studio</p><ul><li>Gather ideas</li><li>Make a first draft</li><li>Leave room to revise</li></ul></div></div>
+      </section>
+      <section id="components" class="py-5 border-bottom">
+        <h2 class="mb-4">Components</h2>
+        <div class="row g-4"><div class="col-lg-6">
+          <div class="alert alert-success" role="status">Your changes are saved.</div><div class="alert alert-warning">Your trial ends in three days.</div>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#element-details" aria-controls="element-details" aria-expanded="false">Project details</button>
+          <div class="collapse mt-3" id="element-details"><div class="border-start border-primary ps-3"><h3 class="h5">The next chapter</h3><p class="mb-0">Sketches, research, and a little room for discovery.</p></div></div>
+        </div><div class="col-lg-6">
+          <label for="element-range" class="form-label">Capacity</label><input id="element-range" type="range" class="form-range" min="0" max="100" value="50">
+          <div class="form-check form-switch my-3"><input class="form-check-input" type="checkbox" role="switch" id="element-switch"><label class="form-check-label" for="element-switch">Email updates</label></div>
+          <label for="element-select" class="form-label">Project status</label><select class="form-select" id="element-select"><option>Draft</option><option>In progress</option><option>Complete</option></select>
+        </div></div>
+      </section>
+      <section id="utilities" class="py-5"><h2 class="mb-4">Utilities</h2><div class="row g-3"><div class="col-md-4"><div class="border-start border-4 border-primary p-3 bg-body-tertiary">Primary accent</div></div><div class="col-md-4"><div class="border-start border-4 border-success p-3 bg-body-tertiary">Success accent</div></div><div class="col-md-4"><div class="border-start border-4 border-warning p-3 bg-body-tertiary">Warning accent</div></div></div></section>
+    </main>
+    <footer class="container py-4 border-top"><a href="../../index.html">Back to all examples</a></footer>
+  </body>
+</html>

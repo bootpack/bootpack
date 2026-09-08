@@ -5,11 +5,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const { discoverPages } = require('./tools/pages');
+const { version } = require('./package.json');
 
 module.exports = (_environment, options = {}) => {
   const production = options.mode === 'production';
   const source = path.join(__dirname, 'src');
   return {
+    name: `bootpack-${version}`,
     mode: production ? 'production' : 'development',
     context: __dirname,
     entry: { index: './src/js/index.js' },

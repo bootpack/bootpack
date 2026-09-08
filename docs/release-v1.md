@@ -51,7 +51,7 @@ package was published. The repository is enabled as a GitHub template.
 
 Cloudflare Pages project `bootpack` uses Git integration restricted to this
 repository, framework None, `npm run build`, output `dist`, Node 24.15.0.
-`master` deploys production; all other branches, including `develop` and `docs/*`,
+`main` deploys production; all other branches, including `develop` and `docs/*`,
 currently deploy public previews. Review deployment approval before branch pushes.
 The validated candidate is `960c64b3.bootpack.pages.dev`; the known-good v1
 production deployment is `c0c04c29.bootpack.pages.dev`, both at 6ab479c.
@@ -77,3 +77,11 @@ not the canonical v1 site.
 Do not introduce React, a generator CLI, a second bundler, or automatic CSS purging
 in this release. These need separate demand and maintenance decisions. Per-page
 entries/shared partials remain future enhancements; all pages share one entry today.
+
+## Post-release maintenance
+
+On 2026-09-08 the owner authorized additional layouts, issue triage, manual
+dependency maintenance and migration of the default/production branch to `main`.
+The original release tag and evidence above remain unchanged. Current development
+includes eight examples and 56 Chromium checks. See [Examples](examples.md) and
+the [legacy issue review](issue-review-2026-09.md) for scope and remaining work.

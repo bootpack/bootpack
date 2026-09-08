@@ -67,7 +67,7 @@ npm run test:browser
 ```text
 src/
   index.html                 Homepage and example gallery
-  templates/                 Starter, grid, callout and navbar examples
+  templates/                 Eight layouts and component examples
   js/index.js                JavaScript entry and selected Bootstrap plugins
   scss/variables.scss        Your Bootstrap variable overrides
   scss/bootstrap.scss        Selected Bootstrap Sass imports
@@ -92,10 +92,15 @@ Existing HTML/CSS/JS edits rebuild while the server is running.
 
 - [First website and theming](docs/getting-started.md)
 - [Image tools and asset paths](docs/assets.md)
+- [Layouts, elements and sample interactions](docs/examples.md)
 - [Cloudflare Pages and other static hosts](docs/deployment.md)
 - [Migrating from v0.13.0](docs/migration-v1.md)
 - [v1.0.0 release checklist](docs/release-v1.md)
 - [Contributing](.github/CONTRIBUTING.md)
+
+The default and production branch is `main`; use `develop` for contributions.
+Dependency updates are reviewed manually with `npm outdated` and `npm audit`.
+The webpack build and browser console report the version from package.json.
 
 The starter supports current Chrome, Edge, Firefox and Safari. Its documented
 browser target is the latest two versions of each; the automated browser suite

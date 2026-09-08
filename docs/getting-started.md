@@ -27,10 +27,9 @@ repository. Clone the repository you created,
 not Bootpack, and run `npm ci` from the folder containing `package.json`.
 
 In your own project, update package metadata, the README, and example links to
-match your site. Change both `target-branch: develop` entries in
-`.github/dependabot.yml` to your working branch (usually `main`), or remove those
-entries to use your repository's default branch. The validation workflow already
-runs on `develop`, `master`, and `main`; it does not publish or deploy anything.
+match your site. The validation workflow runs on `develop` and `main`; it does
+not publish or deploy anything. Bootpack does not include a Dependabot PR schedule.
+Run `npm outdated` and `npm audit` regularly and review dependency updates manually.
 
 Cloning Bootpack directly preserves its Git history and `origin` remote. Do not
 push your site's changes to that upstream. Create your own empty repository and
@@ -52,7 +51,9 @@ For a smaller starting point, copy the structure from
 `src/templates/starter/index.html`. When moving it to the root, update relative
 navigation links: `../../index.html` becomes `./index.html`, for example.
 Replace sample titles, descriptions, placeholder links and form behavior before
-publishing. The example search forms have no search backend.
+publishing. The older example search forms have no search backend. The contact
+example is a local preview only, and the pricing example describes fictional plans.
+See [Examples](examples.md) for interactions and reuse notes.
 
 ## 4. Add another page
 
